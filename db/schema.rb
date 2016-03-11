@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311200425) do
+ActiveRecord::Schema.define(version: 20160311204407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(version: 20160311200425) do
 
   add_index "homes", ["property"], name: "index_homes_on_property", using: :gin
   add_index "homes", ["structure"], name: "index_homes_on_structure", using: :gin
+
+  create_table "locations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "route_type"
+    t.string   "safe_loc"
+    t.string   "evac_plan"
+    t.string   "meetup_point"
+    t.string   "route_to_hospital"
+    t.string   "route_to_fire_stn"
+    t.string   "route_to_police"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
