@@ -1,5 +1,6 @@
 class Gear < ActiveRecord::Base
   belongs_to :user
+  has_many :preparations, as: :prep
 
   store_accessor :ready, :clothes, :flashlight, :backpack
   store_accessor :food, :water_gal, :food_days, :can_opener, :h20_tablets, :mess_kit, :camp_stove
