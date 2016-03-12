@@ -1,0 +1,11 @@
+.container {
+  @include outer-container
+}
+
+.main {
+  padding-top: $header-height ;
+}
+
+body {
+  background-color: rgb(171, 171, 171);
+}

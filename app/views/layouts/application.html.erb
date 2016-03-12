@@ -8,7 +8,21 @@
   </head>
   <body>
 
-    <%= yield %>
+    <div class="header-wrap">
+      <header>
+        <%= link_to root_path do %>
+          <div id="logo"></div>
+        <% end %>
+        <ul>
+          <li>Link1</li>
+          <li>Link2</li>
+          <li>Link3</li>
+        </ul>
+      </header>
+    </div>
+    <div class="main">
+      <%= yield %>
+    </div>
 
   </body>
 </html>

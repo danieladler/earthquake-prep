@@ -1,0 +1,39 @@
+.header-wrap {
+  height: $header-height;
+  position: fixed;
+  z-index: 500;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(145, 145, 145);
+
+  header {
+    @include outer-container;
+
+    // height: $header-height;
+
+    #logo {
+      height: $header-height;
+      width: 60px;
+      background-color: rgb(119, 156, 110);
+      display: inline-block;
+    }
+
+    span {
+      float:right;
+    }
+
+    ul {
+      list-style: none;
+      display: inline-block;
+      float: right;
+      li {
+        padding: 5px 10px;
+        display: inline-block;
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
