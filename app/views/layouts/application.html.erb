@@ -14,15 +14,29 @@
           <div id="logo"></div>
         <% end %>
         <ul>
-          <li>Link1</li>
-          <li>Link2</li>
-          <li>Link3</li>
+          <% if !@current_user %>
+            <%= form_tag sign_in_path do %>
+              <li><input type="email", name="email", placeholder="email"></li>
+              <li><input type="submit", value="Sign In"></li>
+            <% end %>
+            <li><%= link_to "Sign Up", "#" %></li>
+          <% else %>
+            <li><%= @current_user.email %>
+            <li><%= link_to "Account", "#" %></li>
+            <li><%= link_to "Sign Out", sign_out_path %></li>
+          <% end %>
+          <li><%= link_to "About", "#" %></li>
         </ul>
       </header>
     </div>
     <div class="main">
+      <% if flash[:notice] %>
+        <br>
+        <div class="error-messages">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
-
   </body>
 </html>

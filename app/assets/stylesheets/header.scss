@@ -10,8 +10,6 @@
   header {
     @include outer-container;
 
-    // height: $header-height;
-
     #logo {
       height: $header-height;
       width: 60px;
@@ -21,6 +19,19 @@
 
     span {
       float:right;
+    }
+
+    form {
+      display: inline-block;
+      float: right;
+
+      // input {
+      //   display: inline-block;
+      //   float: right;
+      //   width: 120px;
+      //   height: 30px;
+      //   margin: 10px 5px;
+      // }
     }
 
     ul {
