@@ -9,13 +9,20 @@ class AssessmentController < ApplicationController
   end
 
   def update_user
-    raise
+    redirect_to home_info_path
   end
 
   def home_info
   end
 
   def update_home
-    raise
+    @home                         = Home.find_by(user_id: @current_user.id)
+    @home.structure["floors"]     = params["floor_count"].to_i
+    @home.structure["year_built"] = params["year_built"].to_i
+    if @home.save
+      redirect_to home_info_path
+    else
+      render :home_info
+    end
   end
 end

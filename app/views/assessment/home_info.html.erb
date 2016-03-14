@@ -7,11 +7,53 @@
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
 
       <p>
-        <label for="text_field">Address</label>
-        <input type-"text" class="text_field">
+        <label for="text_field">Street Address</label>
+        <input type="text" class="text_field" name="street_address">
+      </p>
+      <p>
+        <label for="text_field">City</label>
+        <input type="text" class="text_field" name="city">
+      </p>
+      <p>
+        <label for="text_field">State</label>
+        <input type="text" class="text_field" name="state">
+      </p>
+      <p>
+        <label for="text_field">Zip</label>
+        <input type="text" class="text_field" name="zip">
       </p>
 
-      <input type="submit" value="Submit">
+      <p>
+        <label for="home_type">House or Apartment?</label>
+        <label>
+          <input type="radio" class="radio" name="home_type" value="house">
+          House
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="radio" class="radio" name="home_type" value="apartment">
+          Apartment
+        </label>
+      </p>
+
+      <p>
+        <label for="floor_dropdown">Number of Floors (including basement):</label>
+        <select name="floor_count">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="year_built">Year Built</label>
+        <input type="text" class="text_field" name="year_built">
+      </p>
+      <button type="next" value="Next">Next</button>
+
+      <!-- <input type="submit" value="Submit"> -->
     </form>
   </fieldset>
 </div>
