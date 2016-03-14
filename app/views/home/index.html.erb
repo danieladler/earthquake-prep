@@ -1,4 +1,8 @@
 <div class="container below-header">
-  <h1> Test Homepage </h1>
-  <h2> <%= link_to "start assessment", user_info_path %> </h2>
+  <h1> Homepage </h1>
+  <% if !@current_user %>
+    <%= link_to "Create an acount to start assessment", sign_up_path %>
+  <% else %>
+    <h2> <%= link_to "start assessment", user_info_path(@current_user.id) %> </h2>
+  <% end %>
 </div>

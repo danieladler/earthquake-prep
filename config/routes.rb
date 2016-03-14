@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-  post "/sign-in"                , to: "sessions#sign_in" , as: :sign_in
-  get  "/sign-out"               , to: "sessions#sign_out", as: :sign_out
+  post "/sign-in" ,                to: "sessions#sign_in" ,    as: :sign_in
+  get  "/sign-out",                to: "sessions#sign_out",    as: :sign_out
 
-  get "/assessment", to: "assessment#user_info", as: :user_info # refactor: user_id wildcard
+  get "/sign-up",                  to: "users#sign_up",        as: :sign_up
+
+  get "/assessment/:id/user_info", to: "assessment#user_info", as: :user_info
 end
