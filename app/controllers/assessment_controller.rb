@@ -13,6 +13,12 @@ class AssessmentController < ApplicationController
   end
 
   def home_info
+    if !Home.find_by(user_id: @current_user.id)
+      @home = Home.new(user_id: @current_user.id)
+      @home.save
+    else
+      @home = Home.find_by(user_id: @current_user.id)
+    end
   end
 
   def update_home
