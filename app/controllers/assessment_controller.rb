@@ -9,6 +9,13 @@ class AssessmentController < ApplicationController
   end
 
   def update_user
-    
+    raise
+  end
+
+  def home_info
+  end
+
+  def update_home
+    raise
   end
 end
