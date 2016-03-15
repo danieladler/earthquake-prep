@@ -26,11 +26,21 @@ class HomeAssessmentController < ApplicationController
     else
       @home.update(is_house?: true)
     end
-    if @home.save
-      redirect_to home_info_path
-    else
-      render :home_info
-    end
+    # redirect_to home_asmt_checks_path
+    home_asmt_checks
+
+    # if @home.save
+    #   redirect_to home_info_path
+    # else
+    #   render :home_info
+    # end
+  end
+
+  def home_asmt_checks
+    @home   = Home.find_by(user_id: @current_user.id)
+    @ha     = HomeAssessment.new(@home)
+    @ha.run_all_checks
+    redirect_to root_path
   end
 
   # methods to check attributes of home and assign todo steps follow here
