@@ -1,4 +1,6 @@
 class HomeAssessment
+  include ActiveModel::Model
+  include ActiveModel::Validations
 
   attr_accessor :home, :user_id
 
@@ -7,7 +9,7 @@ class HomeAssessment
     @user_id = home.user_id
   end
 
-  def create_preparation
+  def new_preparation
     @preparation = home.preparations.new(user_id: user_id)
   end
 
@@ -17,13 +19,17 @@ class HomeAssessment
   end
 
   def furniture_anchored?
-    create_preparation
+    new_preparation
     @preparation.instructions = "Anchor heavy furniture to walls"
+    # if !@preparation.valid?
+    #   redirect_to root_path, notice: "The preparation (#{@preparation.instructions}) already exists."
+    # else
     @preparation.save
+    # end
   end
 
   def water_heater_anchored?
-    create_preparation
+    new_preparation
     @preparation.instructions = "Anchor water heater to wall"
     @preparation.save
   end
