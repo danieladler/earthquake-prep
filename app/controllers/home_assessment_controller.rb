@@ -1,14 +1,4 @@
 class HomeAssessmentController < ApplicationController
-
-  def home_info
-    if !Home.find_by(user_id: @current_user.id)
-      @home = Home.new(user_id: @current_user.id)
-      @home.save
-    else
-      @home = Home.find_by(user_id: @current_user.id)
-    end
-  end
-
   def update_home
     @home                         = Home.find_by(user_id: @current_user.id)
     @home.structure["floors"]     = params["floor_count"].to_i
@@ -37,6 +27,6 @@ class HomeAssessmentController < ApplicationController
   def home_asmt_checks(home)
     @ha     = HomeAssessment.new(home)
     @ha.run_all_checks
-    redirect_to root_path, notice: "Visit your to-do list for home preparations"
+    redirect_to assessment_form_path, notice: "Visit your to-do list for home preparations"
   end
 end
