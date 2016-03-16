@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   get "/sign-up",                     to: "users#sign_up",        as: :sign_up
 
-  get  "/assessment/:id"              , to: "assessment#assessment_form", as: :assessment_form
-  post "/assessment/:id/update_home"  , to: "home_assessment#update_home", as: :update_home
-  post "/assessment/:id/update_dependents", to: "dependent_assessment#update_dependents", as: :update_dependents
+  get  "/assessment"                  , to: "assessment#assessment_form" , as: :assessment_form
+  post "/assessment/update_home"      , to: "home_assessment#update_home", as: :update_home
+  post "/assessment/update_dependents", to: "dependent_assessment#update_dependents", as: :update_dependents
   # post: update_contacts
 
 end

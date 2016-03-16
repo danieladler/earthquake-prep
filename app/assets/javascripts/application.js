@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require assessment_form.js
 //= require turbolinks
 //= require_tree .

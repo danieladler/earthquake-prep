@@ -40,6 +40,12 @@ class HomeAssessment
   #   @preparation.save
   # end
 
+  # def example_2
+  #   new_prep
+  #   @preparation.question = Question.where(keyword: "keyword_here")
+  #   @p.save
+  # end
+
   def anchor_furniture
     new_preparation
     @preparation.instructions = "Bolt and brace heavy furniture to wall studs"

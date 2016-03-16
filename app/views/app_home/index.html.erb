@@ -3,6 +3,6 @@
   <% if !@current_user %>
     <%= link_to "Create an acount to start assessment", sign_up_path %>
   <% else %>
-    <h2> <%= link_to "start assessment", assessment_form_path(@current_user.id) %> </h2>
+    <h2> <%= link_to "start assessment", assessment_form_path %> </h2>
   <% end %>
 </div>

@@ -1,4 +1,6 @@
-]  def update_home
+class HomeAssessmentController < ApplicationController
+
+  def update_home
     @home                         = Home.find_by(user_id: @current_user.id)
     @home.structure["floors"]     = params["floor_count"].to_i
     @home.structure["year_built"] = params["year_built"].to_i
