@@ -32,6 +32,14 @@ class HomeAssessment
   end
 
   # Checks that apply to both house and apartment dwellers
+
+  # def example_anchor_furniture
+  #   new_preparation
+  #   @preparation.keyword = "furniture"
+  #   @preparation.instructions = Question.where(keyword: @preparation.keyword).text
+  #   @preparation.save
+  # end
+
   def anchor_furniture
     new_preparation
     @preparation.instructions = "Bolt and brace heavy furniture to wall studs"

@@ -1,7 +1,8 @@
 <div class="container below-header">
   <h1> Emergency Preparedness Assessment </h1>
-  <fieldset>
+  <fieldset id="home-form">
     <form action="/assessment/<%= @current_user.id%>/update_home" method="post">
+
       <h2>Home Information</h2>
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
@@ -51,9 +52,73 @@
         <label for="year_built">Year Built</label>
         <input type="text" class="text_field" name="year_built">
       </p>
-      <button type="next" value="Next">Next</button>
 
-      <!-- <input type="submit" value="Submit"> -->
+      <input type="submit" value="Save Home">
+    </form>
+  </fieldset>
+
+  <fieldset id="dependent-form">
+    <form action="/assessment/<%= @current_user.id%>/update_dependents" method="post">
+      <h2>Dependents</h2>
+      <p>
+        Add a record for each member of your household for whom you will be
+        responsible during an emergency (including spouse/partner). Pets are
+        also considered dependents and can be added with the 'Add Pet' button.
+      </p>
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+
+      <div class="dependent-block">
+        <p>
+          <label for="text_field">Name</label>
+          <input type="text" class="text_field" name="dep_name">
+        </p>
+        <p>
+          <label for="text_field">Age</label>
+          <input type="text" class="text_field" name="dep_age">
+        </p>
+      </div>
+
+      <button class="add-dep-btn">Add Dependent</button>
+      <button class="add-pet-btn">Add Pet</button>
+      <br>
+      <input type="submit" value="Save Dependents">
+    </form>
+  </fieldset>
+  <fieldset id="contact-form">
+    <form action="/assessment/<%= @current_user.id%>/update_contacts" method="post">
+      <h2>Contacts</h2>
+      <p> Ask a friend or relative who lives outside the state and explain to
+        them that after a disaster they will be your means of communicating with
+        other family members, both in and out of state. Make sure they understand
+        it will be their responsibility to be available to take calls immediately
+        following a disater in your area
+      </p>
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+
+      <div class="contact-block">
+        <p>
+          <label for="text_field">Name</label>
+          <input type="text" class="text_field" name="con_name">
+        </p>
+        <p>
+          <label for="text_field">Phone</label>
+          <input type="text" class="text_field" name="con_phone">
+        </p>
+        <p>
+          <label for="text_field">email</label>
+          <input type="text" class="text_field" name="con_email">
+        </p>
+        <p>
+          <label for="text_field">location</label>
+          <input type="text" class="text_field" name="con_loc">
+        </p>
+      </div>
+
+      <button class="add-dep-btn">Add Contact</button>
+      <br>
+      <input type="submit" value="Save Contacts">
     </form>
   </fieldset>
 </div>
