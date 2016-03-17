@@ -8,10 +8,8 @@ $(document).ready(function () {
     e.preventDefault();
     details = homeForm.serialize();
     $.post('/assessment/update_home', details, function(data) {
-      homeForm.html(data)
-    }) //.done(function(data) {
-    //   console.log("success");
-    // })
+      $(homeForm).append("success");
+    })
   });
 
   // homeForm.ajaxSuccess( function() {
