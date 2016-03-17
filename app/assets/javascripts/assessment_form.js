@@ -3,18 +3,19 @@ $(document).ready(function () {
   var homeForm = $("#home-form");
   var depForm = $("#dependent-form");
   var conForm = $("#contact-form");
+  $(".success-message").hide();
 
   homeForm.submit( function(e) {
     e.preventDefault();
     details = homeForm.serialize();
     $.post('/assessment/update_home', details, function(data) {
-      $(homeForm).append("success");
+      $(".success-message").show();
     })
   });
 
-  // homeForm.ajaxSuccess( function() {
-  //   $(homeForm).append("success");
-  // });
+  homeForm.change(function (){
+    $(".success-message").hide();
+  });
 
   depForm.submit( function(e) {
     e.preventDefault();
@@ -23,5 +24,4 @@ $(document).ready(function () {
   conForm.submit( function(e) {
     e.preventDefault();
   });
-
 });
