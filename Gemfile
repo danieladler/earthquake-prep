@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake', '< 11.0'
 
-gem 'bourbon'
+gem 'bourbon', '~> 4.2.6'
 gem 'neat'
 gem 'bitters'
 

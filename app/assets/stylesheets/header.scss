@@ -1,0 +1,50 @@
+.header-wrap {
+  height: $header-height;
+  position: fixed;
+  z-index: 500;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #919191;
+
+  header {
+    @include outer-container;
+
+    #logo {
+      height: $header-height;
+      width: 60px;
+      background-color: #779c6e;
+      display: inline-block;
+    }
+
+    span {
+      float:right;
+    }
+
+    form {
+      display: inline-block;
+      float: right;
+
+      // input {
+      //   display: inline-block;
+      //   float: right;
+      //   width: 120px;
+      //   height: 30px;
+      //   margin: 10px 5px;
+      // }
+    }
+
+    ul {
+      list-style: none;
+      display: inline-block;
+      float: right;
+      li {
+        padding: 5px 10px;
+        display: inline-block;
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

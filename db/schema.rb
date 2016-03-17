@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311213541) do
+ActiveRecord::Schema.define(version: 20160315180712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,10 +62,15 @@ ActiveRecord::Schema.define(version: 20160311213541) do
 
   create_table "homes", force: :cascade do |t|
     t.integer  "user_id"
-    t.jsonb    "structure",  default: {"floors"=>nil, "fdn_bolted"=>nil, "year_built"=>nil, "fdn_material"=>nil, "chimney_material"=>nil, "structure_material"=>nil, "flam_liquids_outside?"=>nil}, null: false
-    t.jsonb    "property",   default: {"landslide_risk"=>nil, "liquefaction_risk"=>nil},                                                                                                            null: false
-    t.datetime "created_at",                                                                                                                                                                        null: false
-    t.datetime "updated_at",                                                                                                                                                                        null: false
+    t.jsonb    "structure",      default: {"floors"=>nil, "fdn_bolted"=>nil, "year_built"=>nil, "fdn_material"=>nil, "chimney_material"=>nil, "structure_material"=>nil, "flam_liquids_outside?"=>nil}, null: false
+    t.jsonb    "property",       default: {"landslide_risk"=>nil, "liquefaction_risk"=>nil},                                                                                                            null: false
+    t.datetime "created_at",                                                                                                                                                                            null: false
+    t.datetime "updated_at",                                                                                                                                                                            null: false
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.boolean  "is_house?"
   end
 
   add_index "homes", ["property"], name: "index_homes_on_property", using: :gin
@@ -89,11 +94,12 @@ ActiveRecord::Schema.define(version: 20160311213541) do
     t.integer  "prep_id"
     t.string   "prep_type"
     t.string   "instructions"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "est_cost"
     t.integer  "est_time"
     t.datetime "completed_at"
+    t.boolean  "completed?",   default: false
   end
 
   add_index "preparations", ["user_id", "prep_id", "prep_type"], name: "index_preparations_on_user_id_and_prep_id_and_prep_type", using: :btree

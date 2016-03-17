@@ -1,0 +1,25 @@
+.container {
+  @include outer-container;
+
+  h1 {
+    font-size: 36px;
+  }
+}
+
+.main {
+  padding-top: $header-height ;
+}
+
+body {
+  background-color: #ababab;
+}
+
+.error-messages {
+  color: red;
+  border: 1px solid red;
+  background-color: lighten(red, 35%);
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}

@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>EarthquakePrep</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Earthquake Prep</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
-
-</body>
+    <div class="header-wrap">
+      <header>
+        <%= link_to root_path do %>
+          <div id="logo"></div>
+        <% end %>
+        <ul>
+          <% if !@current_user %>
+            <%= form_tag sign_in_path do %>
+              <li><input type="email", name="email", placeholder="email"></li>
+              <li><input type="submit", value="Sign In"></li>
+            <% end %>
+            <li><%= link_to "Sign Up", "#" %></li>
+          <% else %>
+            <li><%= @current_user.email %>
+            <li><%= link_to "Account", "#" %></li>
+            <li><%= link_to "Sign Out", sign_out_path %></li>
+          <% end %>
+          <li><%= link_to "About", "#" %></li>
+        </ul>
+      </header>
+    </div>
+    <div class="main">
+      <% if flash[:notice] %>
+        <div class="error-messages">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
 </html>

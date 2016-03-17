@@ -1,0 +1,22 @@
+fieldset {
+  background-color: #919191;
+  border: 1px solid #DDD;
+  margin: 0 0 0.75em;
+  padding: 1.5em;
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .success-message {
+    @include span-columns(9);
+    height: 40px;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 8px;
+    color: white;
+    float: right;
+    background-color: rgb(134, 190, 89);
+  }
+}
