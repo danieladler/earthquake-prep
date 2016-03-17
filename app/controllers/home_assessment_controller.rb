@@ -19,6 +19,7 @@ class HomeAssessmentController < ApplicationController
     end
     # if @home.save
       home_asmt_checks(@home)
+      # render nothing: true
     #   redirect_to home_info_path
     # else
     #   render :home_info
@@ -28,6 +29,6 @@ class HomeAssessmentController < ApplicationController
   def home_asmt_checks(home)
     @ha     = HomeAssessment.new(home)
     @ha.run_all_checks
-    redirect_to assessment_form_path, notice: "Visit your to-do list for home preparations"
+    # redirect_to assessment_form_path, notice: "Visit your to-do list for home preparations"
   end
 end
