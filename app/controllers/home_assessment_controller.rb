@@ -1,7 +1,7 @@
 class HomeAssessmentController < ApplicationController
 
   def update_home
-    @home                         = Home.find_by(user_id: @current_user.id)
+    @home                         = Home.find_by(user_id: current_user.id)
     @home.update_db_values(params)
     if params[:home_type] == "apartment"
       @home.remove_non_apt_fields(params)
