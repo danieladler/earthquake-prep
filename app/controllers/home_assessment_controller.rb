@@ -11,10 +11,10 @@ class HomeAssessmentController < ApplicationController
     end
     if @home.save
       home_asmt_checks(@home)
-      render nothing: true
     else
       render "assessment/assessment_form"
     end
+    render nothing: true
   end
 
   def home_asmt_checks(home)
