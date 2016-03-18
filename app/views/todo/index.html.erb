@@ -1,0 +1,10 @@
+<div class="container below-header">
+  <h1> Todo view </h1>
+  <ul>
+    <h2>User's todos:</h2>
+    <h3>Home Preparations:</h3>
+    <% @current_user.home_preparations.each do |p| %>
+      <li><%= p.question.contents %></li>
+    <% end %>
+  </ul>
+</div>

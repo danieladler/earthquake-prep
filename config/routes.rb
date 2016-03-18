@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   post "/assessment/update_dependents", to: "dependent_assessment#update_dependents", as: :update_dependents
   # post: update_contacts
 
+  get "/todo" , to:"todo#index"
+
 end

@@ -11,7 +11,6 @@ class HomeAssessmentController < ApplicationController
     end
     home_asmt_checks(@home)
     if @home.save
-      raise
       render nothing: true
     else
       render "assessment/assessment_form"
