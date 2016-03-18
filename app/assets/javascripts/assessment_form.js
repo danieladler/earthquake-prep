@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
+  $(".success-message").hide();
   var homeForm = $("#home-form");
   var depForm = $("#dependent-form");
   var conForm = $("#contact-form");
-  $(".success-message").hide();
 
   homeForm.submit( function(e) {
     e.preventDefault();

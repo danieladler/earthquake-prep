@@ -2,7 +2,7 @@ class HomeAssessment
   include ActiveModel::Model
   include ActiveModel::Validations
 
-  attr_accessor :home, :user_id
+  attr_accessor :home, :user_id, :question_id
 
   def initialize(home)
     @home = home
@@ -32,106 +32,88 @@ class HomeAssessment
   end
 
   # Checks that apply to both house and apartment dwellers
-
-  # def example_anchor_furniture
-  #   new_preparation
-  #   @preparation.keyword = "furniture"
-  #   @preparation.instructions = Question.where(keyword: @preparation.keyword).text
-  #   @preparation.save
-  # end
-
-  # def example_2
-  #   new_prep
-  #   @preparation.question = Question.where(keyword: "keyword_here")
-  #   @p.save
-  # end
-
   def anchor_furniture
     new_preparation
-    @preparation.instructions = "Bolt and brace heavy furniture to wall studs"
-    # if !@preparation.valid?
-    #   redirect_to root_path, notice: "The preparation (#{@preparation.instructions}) already exists."
-    # else
+    @preparation.question = Question.find_by(keyword:"furniture")
     @preparation.save
-    # end
   end
 
   def anchor_water_heater
     new_preparation
-    @preparation.instructions = "Bolt and brace water heater to wall studs"
+    @preparation.question = Question.find_by(keyword:"water_heater")
     @preparation.save
   end
 
   def anchor_gas_heater
     new_preparation
-    @preparation.instructions = "Bolt and brace gas heater to wall studs"
+    @preparation.question = Question.find_by(keyword:"gas_heater")
     @preparation.save
   end
 
   def safe_hanging_audit
     new_preparation
-    @preparation.instructions = "Move heavy picture frames and/or mirrors away from beds"
+    @preparation.question = Question.find_by(keyword:"hanging")
     @preparation.save
   end
 
   def safe_decor_audit
     new_preparation
-    @preparation.instructions = "Move heavy and/or breakable objects that are kept on high shelves to lower places"
+    @preparation.question = Question.find_by(keyword:"decor")
     @preparation.save
   end
 
   def latch_cabinets
     new_preparation
-    @preparation.instructions = "Put latches on kitchen or other cabinets that will hold the door closed during shaking"
+    @preparation.question = Question.find_by(keyword:"cabinets")
     @preparation.save
   end
 
   def id_gas_shutoff
     new_preparation
-    @preparation.instructions = "Identify location of gas shutoff and how to turn it off."
+    @preparation.question = Question.find_by(keyword:"gas_shutoff")
     @preparation.save
   end
 
   def id_water_shutoff
     new_preparation
-    @preparation.instructions = "Identify location of water shutoff and how to turn it off."
+    @preparation.question = Question.find_by(keyword:"water_shutoff")
     @preparation.save
   end
 
   def id_electricity_shutoff
     new_preparation
-    @preparation.instructions = "Identify location of electricity shutoff and how to turn it off."
+    @preparation.question = Question.find_by(keyword:"electricity_shutoff")
     @preparation.save
   end
 
   def shutoff_tool
     new_preparation
-    @preparation.instructions = "Have a tool handy (pipe, crescent or adjustable wrench) that can turn gas and water shutoff valves."
+    @preparation.question = Question.find_by(keyword:"shutoff_tool")
     @preparation.save
   end
 
-  def shutoff_tool
+  def fire_extinguisher
     new_preparation
-    @preparation.instructions = "Have a fire extinguisher handy."
+    @preparation.question = Question.find_by(keyword:"extinguisher")
     @preparation.save
   end
 
   def flam_liquids_outside
     new_preparation
-    @preparation.instructions = "Move flammable liquids (painting or cleaning products) outside to a garage, storage shed or deck."
+    @preparation.question = Question.find_by(keyword:"flammable_liquids")
     @preparation.save
   end
 
   # Checks that apply only to house dwellers
   def flexible_utility_pipes
     new_preparation
-    @preparation.instructions = "Install flexible utility pipes to avoid gas or water leaks."
+    @preparation.question = Question.find_by(keyword:"pipes")
     @preparation.save
   end
 
   def anchor_house_to_foundation
     new_preparation
-    @preparation.instructions = "Make sure your home is securely anchored to its foundation"
+    @preparation.question = Question.find_by(keyword:"foundation")
     @preparation.save
   end
 end

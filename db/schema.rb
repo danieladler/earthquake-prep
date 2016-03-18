@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315180712) do
+ActiveRecord::Schema.define(version: 20160317233912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,16 +93,23 @@ ActiveRecord::Schema.define(version: 20160315180712) do
     t.integer  "user_id"
     t.integer  "prep_id"
     t.string   "prep_type"
-    t.string   "instructions"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.integer  "est_cost"
     t.integer  "est_time"
     t.datetime "completed_at"
     t.boolean  "completed?",   default: false
+    t.integer  "question_id"
   end
 
   add_index "preparations", ["user_id", "prep_id", "prep_type"], name: "index_preparations_on_user_id_and_prep_id_and_prep_type", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "keyword"
+    t.string   "contents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

@@ -3,8 +3,19 @@ class HomeAssessmentController < ApplicationController
   def update_home
     @home                         = Home.find_by(user_id: @current_user.id)
     @home.update_db_values(params)
+    if params[:home_type] == "apartment"
+      @home.remove_non_apt_fields(params)
+      @home.update(is_house?: false)
+    elsif params[:home_type] == "house"
+      @home.update(is_house?: true)
+    end
     home_asmt_checks(@home)
-    render nothing: true
+    if @home.save
+      raise
+      render nothing: true
+    else
+      render "assessment/assessment_form"
+    end
   end
 
   def home_asmt_checks(home)
