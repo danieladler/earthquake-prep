@@ -10,10 +10,20 @@ class HomeAssessment
   end
 
   def new_preparation
-    @preparation = home.preparations.new(user_id: user_id)
+    # @preparation = home.preparations.new(user_id: user_id)
+    @preparation = Preparation.new(user_id: user_id, home_id: home_id)
+  end
+
+  def create_and_check(keyword)
+    new_preparation
+    @preparation.question = Question.find_by(keyword: keyword)
+    #
   end
 
   def run_all_checks
+    # array of keywords
+    #  arr.each create_and_check |k| 
+
     anchor_furniture
     anchor_water_heater
     anchor_gas_heater

@@ -12,7 +12,6 @@ class Home < ActiveRecord::Base
     self.city                    = params[:city]
     self.state                   = params[:state]
     self.zip                     = params[:zip]
-    self.save
   end
 
   def remove_non_apt_fields(params)
@@ -20,7 +19,6 @@ class Home < ActiveRecord::Base
     self.structure.delete("fdn_material")
     self.structure.delete("chimney_material")
     self.structure.delete("structure_material")
-    self.save
   end
 
 end
