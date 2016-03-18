@@ -20,5 +20,4 @@ class Home < ActiveRecord::Base
     self.structure.delete("chimney_material")
     self.structure.delete("structure_material")
   end
-
 end

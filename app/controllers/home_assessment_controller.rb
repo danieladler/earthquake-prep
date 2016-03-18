@@ -19,7 +19,6 @@ class HomeAssessmentController < ApplicationController
 
   def home_asmt_checks(home)
     @ha = HomeAssessment.new(home)
-    # raise
     @ha.run_all_checks
   end
 end
