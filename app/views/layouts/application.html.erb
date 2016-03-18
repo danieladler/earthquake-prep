@@ -14,14 +14,14 @@
           <div id="logo"></div>
         <% end %>
         <ul>
-          <% if !@current_user %>
+          <% if !current_user %>
             <%= form_tag sign_in_path do %>
               <li><input type="email", name="email", placeholder="email"></li>
               <li><input type="submit", value="Sign In"></li>
             <% end %>
             <li><%= link_to "Sign Up", "#" %></li>
           <% else %>
-            <li><%= @current_user.email %>
+            <li><%= current_user.email %>
             <li><%= link_to "Account", "#" %></li>
             <li><%= link_to "Sign Out", sign_out_path %></li>
           <% end %>

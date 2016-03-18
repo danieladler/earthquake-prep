@@ -12,14 +12,12 @@ class Home < ActiveRecord::Base
     self.city                    = params[:city]
     self.state                   = params[:state]
     self.zip                     = params[:zip]
-    if params[:home_type] == "apartment"
-      self.update(is_house?: false)
-      self.structure.delete("fdn_bolted")
-      self.structure.delete("fdn_material")
-      self.structure.delete("chimney_material")
-      self.structure.delete("structure_material")
-    else
-      self.update(is_house?: true)
-    end
+  end
+
+  def remove_non_apt_fields(params)
+    self.structure.delete("fdn_bolted")
+    self.structure.delete("fdn_material")
+    self.structure.delete("chimney_material")
+    self.structure.delete("structure_material")
   end
 end

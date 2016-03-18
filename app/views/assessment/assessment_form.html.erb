@@ -46,10 +46,10 @@
       <p>
         <label for="floor_dropdown">Number of Floors (including basement):</label>
         <select name="floor_count" value="<%= @home.structure["floors"] %>">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
+          <option value="1" selected="<%='selected' if @home.structure["floors"] == 1 %>">1</option>
+          <option value="2" selected="<%='selected' if @home.structure["floors"] == 2 %>">2</option>
+          <option value="3" selected="<%='selected' if @home.structure["floors"] == 3 %>">3</option>
+          <option value="4" selected="<%='selected' if @home.structure["floors"] == 4 %>">4</option>
         </select>
       </p>
 
