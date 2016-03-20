@@ -52,13 +52,14 @@
 
         @include media($large-screen) {
           font-size: 1.1em;
-          max-width: 60%;
+          max-width: 70%;
         }
       }
     }
 
     button {
       @include button(flat, $base-accent-color);
+      margin: 1em;
       padding: 0.7em 1em;
 
       a:visited, a:link {

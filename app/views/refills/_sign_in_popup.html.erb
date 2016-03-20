@@ -1,0 +1,18 @@
+<div class="modal">
+  <label for="modal-1">
+    <div class="modal-trigger">Sign in to continue</div>
+  </label>
+  <input class="modal-state" id="modal-1" type="checkbox" />
+  <div class="modal-fade-screen">
+    <div class="modal-inner">
+      <h1>Sign In</h1>
+      <div class="modal-close" for="modal-1"></div>
+      <%= form_tag sign_in_path do %>
+        <div class="modal-content">
+          <input type="email", name="email", placeholder="email">
+          <input type="submit", value="Sign In">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
