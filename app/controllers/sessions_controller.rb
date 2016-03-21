@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
-  def sign_in
+
+  def new
+  end
+
+  def create
     @user = User.find_by(email: params[:email])
     if @user == nil
       redirect_to root_path, notice: "Wrong username or password"
@@ -11,6 +15,6 @@ class SessionsController < ApplicationController
 
   def sign_out
     session.delete(:user_id)
-    redirect_to "/"
+    redirect_to root_path, notice: "Signed out"
   end
 end

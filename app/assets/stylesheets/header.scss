@@ -5,7 +5,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #919191;
+  border-bottom: 1px solid white;
 
   header {
     @include outer-container;
@@ -13,8 +13,14 @@
     #logo {
       height: $header-height;
       width: 60px;
-      background-color: #779c6e;
+      // background-color: #779c6e;
       display: inline-block;
+
+      i {
+        font-size: 3em;
+        color: white;
+        padding-top: 6px;
+      }
     }
 
     span {

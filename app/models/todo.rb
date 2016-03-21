@@ -22,7 +22,7 @@ class Todo
   end
 
   def all_prep_progress
-    home_prep_progress # + OTHER_prep_progress
+    completed_all_preps/total_all_preps
   end
 
   # home preparations
