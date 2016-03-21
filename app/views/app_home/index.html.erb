@@ -14,7 +14,7 @@
         <div class="hero-copy">
           <h1>Let's pick up where you left off.</h1>
           <p> [progress indicator of assessment completion] </p>
-          <p> [progress indicator of todo completion] </p>
+          <p><%= @todo.all_prep_progress.to_f.round(2) %> % of preparations complete </p>
         </div>
   			<button> <%= link_to "Assessment", assessment_form_path %></button>
   			<button> <%= link_to "Todo", todo_path %></button>
