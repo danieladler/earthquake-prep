@@ -74,7 +74,7 @@
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
 
-      <div class="dependent-block">
+      <div class="human-dependent-block">
         <p>
           <label for="text_field">Name</label>
           <input type="text" class="text_field" name="dep_name">
@@ -83,6 +83,7 @@
           <label for="text_field">Age</label>
           <input type="text" class="text_field" name="dep_age">
         </p>
+        <input type="hidden" name="human" value="true">
       </div>
 
       <button class="add-dep-btn">Add Dependent</button>
