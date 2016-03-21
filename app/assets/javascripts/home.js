@@ -1,3 +1,4 @@
+// sign-in modal:
 $(document).ready(function () {
   $(function() {
     $("#modal-1").on("change", function() {
