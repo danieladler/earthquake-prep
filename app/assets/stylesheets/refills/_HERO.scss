@@ -16,9 +16,8 @@
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 3em;
+  padding-bottom: 1em;
   border-radius: 0.5em;
-
 
       .hero-logo i {
         font-size: 5em;
@@ -52,7 +51,7 @@
         margin: 0 auto 1em auto;
 
         @include media($large-screen) {
-          font-size: 1.1em;
+          font-size: 1.3em;
           max-width: 70%;
         }
       }
@@ -62,6 +61,10 @@
       @include button(flat, $base-accent-color);
       margin: 1em;
       padding: 0.7em 1em;
+      height: 8em;
+      width: 10em;
+      border-radius: 1em;
+      background-color: rgba(22, 95, 154, 0.8);
 
       a:visited, a:link {
         color: white;

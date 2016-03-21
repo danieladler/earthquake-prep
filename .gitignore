@@ -11,4 +11,5 @@
 /log/*
 !/log/.keep
 /tmp
-app/assets/images/aerial-neighborhood-2.png
+app/assets/images/aerial-neighborhood-2.jpeg
+app/assets/images/aerial-neighborhood-2-opaque.jpg

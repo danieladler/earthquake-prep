@@ -1,12 +1,24 @@
 <div class="container below-header">
-  <% if !current_user %>
-    <%= render "refills/hero" %>
-  <% else %>
-    <div>
-      <h2> <%= link_to "Assessment", assessment_form_path %> </h2>
-    </div>
-    <div>
-      <h2> <%= link_to "Todo", todo_path %> </h2>
-    </div>
-  <% end %>
+  <div class="hero">
+  	<div class="hero-inner">
+  		<% if !current_user %>
+  			<a href="" class="hero-logo"><i class="fa fa-life-ring fa-4"></i></a>
+  			<div class="hero-copy">
+  				<h1>Personalized Earthquake Preparation</h1>
+  				<p>Preparing for "The Big One" can be scary, time-consuming, and expensive.</p>
+  				<p>Ready.city helps you make a disaster preparation plan unique to your home, priorities and budget.</p>
+  			</div>
+  	    <button id="sign-up"><%= link_to "Sign Up", sign_up_path %></button>
+  	    <button id="sign-in"><%= render "refills/sign_in_popup" %></button>
+  		<% else %>
+        <div class="hero-copy">
+          <h1>Let's pick up where you left off.</h1>
+          <p> [progress indicator of assessment completion] </p>
+          <p> [progress indicator of todo completion] </p>
+        </div>
+  			<button> <%= link_to "Assessment", assessment_form_path %></button>
+  			<button> <%= link_to "Todo", todo_path %></button>
+  		<% end %>
+  	</div>
+  </div>
 </div>
