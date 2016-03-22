@@ -1,0 +1,29 @@
+#todo {
+  // * {
+  //   border: 1px solid rgb(242, 220, 250);
+  // }
+
+  .prep-type-list {
+    float: left;
+    @include span-columns(8);
+    border: 1px solid black;
+
+    .prep-item {
+      padding: 5px 0 5px 10px;
+
+      &:hover {
+        background-color: rgb(153, 153, 153);
+      }
+    }
+
+    &:first-child {
+      padding-top: 10px;
+    }
+  }
+
+  .show-prep {
+    @include span-columns(4);
+    border: 1px solid black;
+  }
+
+}
