@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   post  "/sign-in" ,                    to: "sessions#create"
   get   "/sign-out",                    to: "sessions#sign_out",                      as: :sign_out
 
-  get "/sign-up",                       to: "users#sign_up",                          as: :sign_up
+  get   "/sign-up",                     to: "users#sign_up",                          as: :sign_up
+  post  "/users",                       to: "users#create",                           as: :users
 
   get  "/assessment",                   to: "assessment#assessment_form" ,            as: :assessment_form
   post "/assessment/update_home",       to: "home_assessment#update_home",            as: :update_home
