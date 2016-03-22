@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'react-rails', '~> 1.6.0'
+
 gem 'rake', '< 11.0'
 
 gem 'bourbon', '~> 4.2.6'
