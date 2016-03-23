@@ -14,10 +14,23 @@ var Todo = React.createClass({
   render: function() {
     return(
       <div>
+        <Dashboard />
         <PrepTypeList handleClick={this.setCurrentPrep} preps={this.state.preps}/>
         <ShowPrep prep={this.state.currentPrep}/>
       </div>
     );
+  }
+});
+
+var Dashboard = React.createClass({
+  render: function() {
+    var body;
+    body = <h1> dashboard here </h1>
+    return(
+      <div className="prep-dashboard">
+        {body}
+      </div>
+    )
   }
 });
 
