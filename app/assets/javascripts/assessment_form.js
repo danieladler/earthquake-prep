@@ -17,9 +17,9 @@ $(document).ready(function () {
     $(".success-message").hide();
   });
 
-  depForm.submit( function(e) {
-    e.preventDefault();
-  });
+  // depForm.submit( function(e) {
+  //   e.preventDefault();
+  // });
 
   conForm.submit( function(e) {
     e.preventDefault();

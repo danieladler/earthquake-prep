@@ -64,7 +64,9 @@
   </fieldset>
 
   <fieldset id="dependent-field">
-    <form action="/assessment/update_dependents" method="post" class="asmt-form" id="dependent-form">
+    <ul id="dependent-list">
+    </ul>
+    <form action="/assessment/add_dependent" method="post" class="asmt-form" id="dependent-form">
       <h2>Dependents</h2>
       <p>
         Add a record for each member of your household for whom you will be
@@ -85,11 +87,7 @@
         </p>
         <input type="hidden" name="human" value="true">
       </div>
-
-      <button class="add-dep-btn">Add Dependent</button>
-      <button class="add-pet-btn">Add Pet</button>
-      <br>
-      <input type="submit" value="Save Dependents">
+      <input type="submit" value="Add and Save Dependent">
     </form>
   </fieldset>
 
