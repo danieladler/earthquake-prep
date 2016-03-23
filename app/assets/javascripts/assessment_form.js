@@ -17,9 +17,13 @@ $(document).ready(function () {
     $(".success-message").hide();
   });
 
-  // depForm.submit( function(e) {
-  //   e.preventDefault();
-  // });
+  depForm.submit( function(e) {
+    e.preventDefault();
+    details = depForm.serialize();
+    $.post('/assessment/add_dependent', details, function(data) {
+      $("#dependent-list").append("Name: " + depForm.find('input[name="dep_name"]').val());
+    })
+  });
 
   conForm.submit( function(e) {
     e.preventDefault();
