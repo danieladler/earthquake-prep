@@ -11,19 +11,12 @@ var Todo = React.createClass({
   setCurrentPrep: function(prep) {
     this.setState({currentPrep: prep})
   },
-  markComplete: function(prep) {
-    // find the matching prep item
-    // change its complete: key to true
-
-
-    // prep[complete] = true
+  markComplete: function() {
+    var cp = this.state.currentPrep;
+    var updatedPrepList = this.state.preps;
+    cp["complete"] = true
+    this.setState({preps: updatedPrepList, currentPrep: null});
   },
-
-  // crossOut: function(prep) {
-  //   console.log("yep");
-  //   this.setState({currentPrep: prep, isCrossedOut: true});
-  // },
-
 
   render: function() {
     return(
@@ -65,16 +58,9 @@ var PrepTypeList = React.createClass({
 });
 
 var PrepItem = React.createClass({
-  // getInitialState: function() {
-  //   return {isCrossedOut: false}
-  // },
   showPrep: function() {
     this.props.handleClick(this.props.prep);
   },
-  // crossOut: function() {
-  //   console.log("yep");
-  //   // this.setState({isCrossedOut: true});
-  // },
   render: function() {
     var body;
     if (this.props.prep.complete) {
@@ -106,7 +92,7 @@ var ShowPrep = React.createClass({
     </div>
       )
     } else {
-      body = <h2> No Prep Selected </h2>
+      body = <h2> select a prep on the left to edit </h2>
     }
     return(
       <div className="show-prep">
