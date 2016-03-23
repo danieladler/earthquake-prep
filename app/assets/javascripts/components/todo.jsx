@@ -11,6 +11,9 @@ var Todo = React.createClass({
   setCurrentPrep: function(prep) {
     this.setState({currentPrep: prep})
   },
+  remCurrentPrep: function(prep) {
+    this.setState({currentPrep: null})
+  },
   markComplete: function() {
     var cp = this.state.currentPrep;
     var updatedPrepList = this.state.preps;
@@ -22,7 +25,7 @@ var Todo = React.createClass({
     return(
       <div>
         <Dashboard />
-        <PrepTypeList handleClick={this.setCurrentPrep} preps={this.state.preps}/>
+        <PrepTypeList mouseOver={this.setCurrentPrep} mouseOff={this.remCurrentPrep} preps={this.state.preps}/>
         <ShowPrep prep={this.state.currentPrep} handleClick={this.markComplete}/>
       </div>
     );
@@ -46,7 +49,7 @@ var PrepTypeList = React.createClass({
     var prepDivs = [];
 
     for (var i = 0; i < this.props.preps.length; i++) {
-      prepDivs.push(<PrepItem handleClick={this.props.handleClick} key={i} prep={this.props.preps[i]}/>)
+      prepDivs.push(<PrepItem mouseOver={this.props.mouseOver} mouseOff={this.props.mouseOff} key={i} prep={this.props.preps[i]}/>)
     }
 
     return(
@@ -59,7 +62,10 @@ var PrepTypeList = React.createClass({
 
 var PrepItem = React.createClass({
   showPrep: function() {
-    this.props.handleClick(this.props.prep);
+    this.props.mouseOver(this.props.prep);
+  },
+  remPrep: function() {
+    this.props.mouseOff(this.props.prep);
   },
   render: function() {
     var body;
@@ -69,7 +75,8 @@ var PrepItem = React.createClass({
       body = <p>{this.props.prep.question_contents}</p>
     }
     return(
-      <div onClick={this.showPrep} className="prep-item">
+      <div onMouseOver={this.showPrep} onMouseOut={this.remPrep} className="prep-item">
+        <input onClick={this.markComplete} type="checkbox" className="prep-check"></input>
         {body}
       </div>
     )

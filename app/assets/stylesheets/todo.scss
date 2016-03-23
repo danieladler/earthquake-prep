@@ -20,12 +20,19 @@
     @include span-columns(8);
     border: 1px solid black;
 
+    .prep-check {
+      float: left;
+    }
+
     .prep-item {
+      clear: none;
       padding: 5px 0 5px 10px;
 
       &:hover {
         background-color: rgb(153, 153, 153);
       }
+
+
     }
 
     &:first-child {
