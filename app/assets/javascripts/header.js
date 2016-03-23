@@ -5,7 +5,7 @@ $(document).ready(function () {
 
   $(document).scroll(function(e){
     var scrollPercent = (headerHeight - window.scrollY) / headerHeight;
-    console.log(scrollPercent);
+    // console.log(scrollPercent);
       if (scrollPercent < .70) {
         headerWrap.css('background-color', 'rgba(145, 145, 145, 1)');
       }

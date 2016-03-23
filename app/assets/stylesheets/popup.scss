@@ -120,11 +120,20 @@
       margin-bottom: 1em;
     }
 
+    #sign-in-form {
+      height: 30%;
+    }
+
     .modal-content {
+      height: 30%;
       color: $base-font-color;
 
-      @include media($medium-screen) {
-        @include columns(2 8em);
+      // @include media($medium-screen) {
+      //   @include columns(2 8em);
+      // }
+
+      input {
+        width: 100%;
       }
     }
 

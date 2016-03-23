@@ -1,0 +1,52 @@
+#todo {
+  // * {
+  //   border: 1px solid rgb(242, 220, 250);
+  // }
+
+  .prep-dashboard {
+    @include span-columns(12);
+    clear: both;
+    border: 2px solid black;
+    margin-bottom: 20px;
+
+    h1 {
+      margin: 10px 0;
+      text-align: center;
+    }
+  }
+
+  .prep-type-list {
+    float: left;
+    @include span-columns(8);
+    border: 1px solid black;
+
+    .prep-check {
+      float: left;
+    }
+
+    .prep-item {
+      clear: none;
+      padding: 5px 0 5px 10px;
+
+      &:hover {
+        background-color: rgb(153, 153, 153);
+      }
+
+
+    }
+
+    &:first-child {
+      padding-top: 10px;
+    }
+  }
+
+  .show-prep {
+    @include span-columns(4);
+    border: 1px solid black;
+  }
+
+  .crossed-out {
+    text-decoration: line-through;
+  }
+
+}

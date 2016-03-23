@@ -1,3 +1,35 @@
 <div class="container below-header">
   <h1>[Create Account Page]</h1>
+  <%= form_for @user do |f|  %>
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_area :username %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_area :email %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+  <% if @user %>
+    <% if @user.errors.any? %>
+      <div class="validation-error-msg">
+        <% @user.errors.each do |column, message| %>
+          <ul>
+            <li>
+              <strong><%= column.capitalize %>:</strong> <%= message %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
