@@ -21,7 +21,7 @@ class ContactAssessment
   end
 
   def run_all_checks
-    contact_keywords = %(confirmed_contact)
+    contact_keywords = %w(confirmed_contact)
 
     contact_keywords.each do |k|
       create_and_check(k)

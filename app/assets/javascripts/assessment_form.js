@@ -24,7 +24,6 @@ $(document).ready(function () {
     var li = (
       "<li class='dep-list-item'><span>Name: " + depForm.find('input[name="dep_name"]').val() + "</span><button class='delete-dep'> x </button></li>"
     )
-
     $.post('/assessment/add_dependent', details, function(data) {
       $("#dependent-list").append(li);
     })
@@ -42,15 +41,14 @@ $(document).ready(function () {
     parent.remove();
   });
 
-  // conForm.submit( function(e) {
-    // e.preventDefault();
-    // details = conForm.serialize();
-    // var li = (
-    //   "<li class='dep-list-item'><span>Name: " + depForm.find('input[name="dep_name"]').val() + "</span><button class='delete-dep'> x </button></li>"
-    // )
-
-    // $.post('/assessment/add_contact', details, function(data) {
-      // $("#dependent-list").append(li);
-    // })
-  // });
+  conForm.submit( function(e) {
+    e.preventDefault();
+    details = conForm.serialize();
+    var li = (
+      "<li class='con-list-item'><span>Name: " + conForm.find('input[name="con_name"]').val() + "</span><button class='delete-con'> x </button></li>"
+    )
+    $.post('/assessment/add_contact', details, function(data) {
+      $("#contact-list").append(li);
+    })
+  });
 });
