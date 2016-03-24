@@ -4,18 +4,11 @@ class DependentAssessmentController < ApplicationController
     @dependent = Dependent.new(user_id: current_user.id)
     @dependent.update_db_values(params)
     if @dependent.save
-      render nothing: true
+      dep_asmt_checks(@dependent)
     else
-      render "assessment/assessment_form", notice: "error saving dependent"
+      render "assessment/assessment_form"
     end
-
-    # TRY OUT BELOW CODE ONCE DEPENDENT ASSESSMENT IN PLACE:
-    # if @dependent.save
-    #   dep_asmt_checks(@dependent)
-    # else
-    #   render "assessment/assessment_form"
-    # end
-    # render nothing: true
+    render nothing: true
   end
 
   def remove_dependent
@@ -24,11 +17,11 @@ class DependentAssessmentController < ApplicationController
       render nothing: true
     else
       # ??
-      raise
     end
-
   end
 
-  def dep_asmt_checks(dependents)
+  def dep_asmt_checks(dependent)
+    @da = DependentAssessment.new(dependent)
+    @da.run_all_checks
   end
 end
