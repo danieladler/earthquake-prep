@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require home
 //= require assessment_form.js
-//= require turbolinks
 //= require react
 //= require react_ujs
 //= require components
