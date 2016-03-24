@@ -9,7 +9,7 @@
     <% current_user.dependents.each do |d| %>
       <li class="dep-list-item">
         <span><strong>Name:</strong> <%= d.name %></span>
-        <button class="delete-dep" href= "<%= remove_dependent_path(d.id)%>"> x </button>
+        <button class="delete-record" href= "<%= remove_dependent_path(d.id)%>"> x </button>
       </li>
     <% end %>
   </ul>

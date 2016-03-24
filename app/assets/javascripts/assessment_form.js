@@ -4,7 +4,7 @@ $(document).ready(function () {
   var homeForm = $("#home-form");
   var depForm = $("#dependent-form");
   var conForm = $("#contact-form");
-  var deleteDep = $(".delete-dep");
+  var deleteRec = $(".delete-record");
 
   homeForm.submit( function(e) {
     e.preventDefault();
@@ -29,18 +29,6 @@ $(document).ready(function () {
     })
   });
 
-  deleteDep.click( function() {
-    var url = $(this).attr("href");
-    var parent = $(this).parent();
-    $.ajax({
-      url: url,
-      type: 'DELETE',
-      function(data) {
-      }
-    });
-    parent.remove();
-  });
-
   conForm.submit( function(e) {
     e.preventDefault();
     details = conForm.serialize();
@@ -50,5 +38,17 @@ $(document).ready(function () {
     $.post('/assessment/add_contact', details, function(data) {
       $("#contact-list").append(li);
     })
+  });
+
+  deleteRec.click( function() {
+    var url = $(this).attr("href");
+    var parent = $(this).parent();
+    $.ajax({
+      url: url,
+      type: 'DELETE',
+      function(data) {
+      }
+    });
+    parent.remove();
   });
 });

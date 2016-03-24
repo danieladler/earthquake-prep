@@ -9,7 +9,7 @@
     <% current_user.contacts.each do |c| %>
       <li class="con-list-item">
         <span><strong>Name:</strong> <%= c.name %></span>
-        <button class="delete-con" href= "<%= remove_contact_path(c.id)%>"> x </button>
+        <button class="delete-record" href= "<%= remove_contact_path(c.id)%>"> x </button>
       </li>
     <% end %>
   </ul>

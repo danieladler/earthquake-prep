@@ -12,7 +12,12 @@ class ContactAssessmentController < ApplicationController
   end
 
   def remove_contact
-
+    @contact = Contact.find_by(id: params[:id])
+    @contact.destroy
+    if current_user.contacts.count == 0
+      Preparation.where(user_id: current_user.id, prep_type:"Contact").destroy_all
+    end
+    render nothing: true
   end
 
   def con_asmt_checks(contact)
