@@ -14,6 +14,9 @@ class DependentAssessmentController < ApplicationController
   def remove_dependent
     @dependent = Dependent.find_by(id: params[:id])
     if @dependent.destroy
+      # check the user's dependents
+      # if this one that was just deleted is the last of its type
+        # go delete all of the preps connected to this type (by keyword)
       render nothing: true
     else
       # ??

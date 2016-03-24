@@ -15,5 +15,4 @@ Rails.application.routes.draw do
   # post: update_contacts
 
   get "/todo",                          to:"todo#index",                              as: :todo
-
 end

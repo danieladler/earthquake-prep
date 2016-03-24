@@ -1,0 +1,37 @@
+<fieldset id="dependent-field">
+  <h2>Dependents</h2>
+  <p class="form-descr">
+    Add a record for each member of your household for whom you will be
+    responsible during an emergency (including spouse/partner). Pets are
+    also considered dependents and can be added with the 'Add Pet' button.
+  </p>
+  <ul id="dependent-list">
+    <% current_user.dependents.each do |d| %>
+      <li class="dep-list-item">
+        <span><strong>Name:</strong> <%= d.name %></span>
+        <button class="delete-dep" href= "<%= remove_dependent_path(d.id)%>"> x </button>
+      </li>
+    <% end %>
+  </ul>
+  <form action="/assessment/add_dependent" method="post" class="asmt-form" id="dependent-form">
+    <input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+    <div class="form-field">
+      <label for="text_field">Name</label>
+      <input type="text" class="text_field" name="dep_name">
+    </div>
+    <div class="form-field" id="dep-type">
+      <label for="dep_type">Human or Pet?</label>
+      <label>
+        <input type="radio" class="radio" name="human" value="true">
+        Human
+      </label>
+      <label>
+        <input type="radio" class="radio" name="human" value="false">
+        Pet
+      </label>
+    </div>
+
+    <input id="submit-dep" type="submit" value="Add and Save Dependent">
+  </form>
+</fieldset>
