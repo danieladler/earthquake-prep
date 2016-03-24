@@ -14,11 +14,11 @@ class Todo
 
   # all preparations - summary
   def completed_all_preps
-    completed_home_preps # + completed_OTHER_preps
+    completed_home_preps + completed_dependent_preps# + completed_OTHER_preps
   end
 
   def total_all_preps
-    total_home_preps # + total_OTHER_preps
+    total_home_preps + total_dependent_preps# + total_OTHER_preps
   end
 
   def all_prep_progress
@@ -38,7 +38,19 @@ class Todo
     completed_home_preps/total_home_preps
   end
 
+  # dependent preparations
+  def completed_dependent_preps
+    current_user.dependent_preparations.where(completed?: true).count.to_f
+  end
+
+  def total_dependent_preps
+    current_user.dependent_preparations.count.to_f
+  end
+
+  def dependent_prep_progress
+    completed_dependent_preps/total_dependent_preps
+  end
+
   # gear preparations
   # contact preparations
-  # dependent preparations
 end
