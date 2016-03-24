@@ -13,5 +13,7 @@ class AssessmentController < ApplicationController
     else
       @home = Home.find_by(user_id: current_user.id)
     end
+
+    @dependents = Dependent.find_by(user_id: current_user.id)
   end
 end

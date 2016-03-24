@@ -5,9 +5,12 @@
     to be more prepared in the event of an earthquake.
   </p>
   <fieldset id="home-field">
+    <h2>Home</h2>
     <form action="/assessment/update_home" method="post" class="asmt-form" id="home-form">
+    <p class="form-descr">
+      Enter details about your home.
+    </p>
 
-      <h2>Home</h2>
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
 
@@ -64,43 +67,53 @@
   </fieldset>
 
   <fieldset id="dependent-field">
-    <form action="/assessment/update_dependents" method="post" class="asmt-form" id="dependent-form">
-      <h2>Dependents</h2>
-      <p>
-        Add a record for each member of your household for whom you will be
-        responsible during an emergency (including spouse/partner). Pets are
-        also considered dependents and can be added with the 'Add Pet' button.
-      </p>
+    <h2>Dependents</h2>
+    <p class="form-descr">
+      Add a record for each member of your household for whom you will be
+      responsible during an emergency (including spouse/partner). Pets are
+      also considered dependents and can be added with the 'Add Pet' button.
+    </p>
+    <ul id="dependent-list">
+      <% current_user.dependents.each do |d| %>
+        <li class="dep-list-item">
+          <span><strong>Name:</strong> <%= d.name %></span>
+          <button class="delete-dep" href= "<%= remove_dependent_path(d.id)%>"> x </button>
+        </li>
+      <% end %>
+    </ul>
+    <form action="/assessment/add_dependent" method="post" class="asmt-form" id="dependent-form">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
-
-      <div class="dependent-block">
-        <p>
-          <label for="text_field">Name</label>
-          <input type="text" class="text_field" name="dep_name">
-        </p>
-        <p>
-          <label for="text_field">Age</label>
-          <input type="text" class="text_field" name="dep_age">
-        </p>
+      <div class="form-field">
+        <label for="text_field">Name</label>
+        <input type="text" class="text_field" name="dep_name">
+      </div>
+      <div class="form-field" id="dep-type">
+        <label for="dep_type">Human or Pet?</label>
+        <label>
+          <input type="radio" class="radio" name="human" value="true">
+          Human
+        </label>
+        <label>
+          <input type="radio" class="radio" name="human" value="false">
+          Pet
+        </label>
       </div>
 
-      <button class="add-dep-btn">Add Dependent</button>
-      <button class="add-pet-btn">Add Pet</button>
-      <br>
-      <input type="submit" value="Save Dependents">
+      <input id="submit-dep" type="submit" value="Add and Save Dependent">
     </form>
   </fieldset>
 
   <fieldset id="contact-field">
+    <h2>Contacts</h2>
+    <p class="form-descr">
+      Ask a friend or relative who lives outside the state and explain to
+      them that after a disaster they will be your means of communicating with
+      other family members, both in and out of state. Make sure they understand
+      it will be their responsibility to be available to take calls immediately
+      following a disater in your area
+    </p>
     <form action="/assessment/update_contacts" method="post" class="asmt-form" id="contact-form">
-      <h2>Contacts</h2>
-      <p> Ask a friend or relative who lives outside the state and explain to
-        them that after a disaster they will be your means of communicating with
-        other family members, both in and out of state. Make sure they understand
-        it will be their responsibility to be available to take calls immediately
-        following a disater in your area
-      </p>
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
 
