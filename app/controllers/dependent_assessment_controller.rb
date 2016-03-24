@@ -19,12 +19,13 @@ class DependentAssessmentController < ApplicationController
       dep_preps.each do |p|
         p.destroy if (%(drill responsibilities meetup_home meetup_neighborhood)).include? p.question.keyword
       end
-    elsif current_user.no_pet_dependents
+    end
+
+    if current_user.no_pet_dependents
       dep_preps.each do |p|
         p.destroy if (%(pet_hotel shelter_ready microchip)).include? p.question.keyword
       end
     end
-    raise
     render nothing: true
   end
 
