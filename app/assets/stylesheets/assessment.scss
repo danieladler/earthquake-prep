@@ -8,6 +8,13 @@ fieldset {
     font-size: 24px;
   }
 
+  .form-field {
+    @include span-columns(3);
+    label {
+      clear: both;
+    }
+  }
+
   .success-message {
     @include span-columns(9);
     height: 40px;
