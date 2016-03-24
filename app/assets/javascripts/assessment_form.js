@@ -22,7 +22,7 @@ $(document).ready(function () {
     e.preventDefault();
     details = depForm.serialize();
     var li = (
-      "<li class='dep-list-item'><span>Name: " + depForm.find('input[name="dep_name"]').val() + "</span><button class='delete-dep'> Delete </button></li>"
+      "<li class='dep-list-item'><span>Name: " + depForm.find('input[name="dep_name"]').val() + "</span><button class='delete-dep'> x </button></li>"
     )
 
     $.post('/assessment/add_dependent', details, function(data) {

@@ -9,7 +9,7 @@ fieldset {
   }
 
   .form-field {
-    @include span-columns(3);
+    @include span-columns(4);
     label {
       clear: both;
     }
@@ -25,5 +25,36 @@ fieldset {
     color: white;
     float: right;
     background-color: rgb(134, 190, 89);
+  }
+}
+
+#dependent-field {
+  #dependent-list {
+    padding-bottom: 20px;
+
+    .dep-list-item {
+      clear: both;
+
+      span {
+        @include span-columns(3);
+      }
+
+      button {
+        background-color: red;
+        height: 20px;
+        width: 20px;
+        padding: 0;
+        padding-bottom: 2px;
+      }
+    }
+  }
+
+  #dep-type {
+    text-align: center;
+  }
+
+  #submit-dep {
+    @include span-columns(4);
+    margin-top: 20px;
   }
 }
