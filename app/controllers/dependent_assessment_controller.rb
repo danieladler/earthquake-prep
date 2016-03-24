@@ -13,14 +13,19 @@ class DependentAssessmentController < ApplicationController
 
   def remove_dependent
     @dependent = Dependent.find_by(id: params[:id])
-    if @dependent.destroy
-      # check the user's dependents
-      # if this one that was just deleted is the last of its type
-        # go delete all of the preps connected to this type (by keyword)
-      render nothing: true
-    else
-      # ??
+    @dependent.destroy
+    dep_preps = Preparation.where(user_id: current_user.id, prep_type:"Dependent")
+    if current_user.no_human_dependents
+      dep_preps.each do |p|
+        p.destroy if (%(drill responsibilities meetup_home meetup_neighborhood)).include? p.question.keyword
+      end
+    elsif current_user.no_pet_dependents
+      dep_preps.each do |p|
+        p.destroy if (%(pet_hotel shelter_ready microchip)).include? p.question.keyword
+      end
     end
+    raise
+    render nothing: true
   end
 
   def dep_asmt_checks(dependent)
