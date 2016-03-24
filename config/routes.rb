@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   delete "/assessment/remove_dependent/:id", to: "dependent_assessment#remove_dependent", as: :remove_dependent
   post "/assessment/add_contact",     to: "contact_assessment#add_contact",     as: :add_contact
   delete "/assessment/remove_contact/:id", to: "contact_assessment#remove_contact", as: :remove_contact
-  # post: update_contacts
 
   get "/todo",                          to:"todo#index",                              as: :todo
 end

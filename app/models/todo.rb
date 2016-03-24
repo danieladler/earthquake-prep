@@ -51,6 +51,18 @@ class Todo
     completed_dependent_preps/total_dependent_preps
   end
 
-  # gear preparations
   # contact preparations
+  def completed_contact_preps
+    current_user.contact_preparations.where(completed?: true).count.to_f
+  end
+
+  def total_dependent_preps
+    current_user.contact_preparations.count.to_f
+  end
+
+  def dependent_prep_progress
+    completed_contact_preps/total_contact_preps
+  end
+
+  # gear preparations
 end
