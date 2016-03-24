@@ -18,6 +18,17 @@ class DependentAssessmentController < ApplicationController
     # render nothing: true
   end
 
+  def remove_dependent
+    @dependent = Dependent.find_by(id: params[:id])
+    if @dependent.destroy
+      render nothing: true
+    else
+      # ??
+      raise
+    end
+
+  end
+
   def dep_asmt_checks(dependents)
   end
 end

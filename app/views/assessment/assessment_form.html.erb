@@ -75,7 +75,10 @@
     </p>
     <ul id="dependent-list">
       <% current_user.dependents.each do |d| %>
-        <li>Name: <%= d.name %></li>
+        <li class="dep-list-item">
+          <span>Name: <%= d.name %></span>
+          <button class="delete-dep" href= "<%= remove_dependent_path(d.id)%>"> Delete </button>
+        </li>
       <% end %>
     </ul>
     <form action="/assessment/add_dependent" method="post" class="asmt-form" id="dependent-form">

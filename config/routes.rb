@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get  "/assessment",                   to: "assessment#assessment_form" ,            as: :assessment_form
   post "/assessment/update_home",       to: "home_assessment#update_home",            as: :update_home
   post "/assessment/add_dependent",     to: "dependent_assessment#add_dependent",     as: :add_dependent
+  delete "/assessment/remove_dependent/:id", to: "dependent_assessment#remove_dependent", as: :remove_dependent
   # post: update_contacts
 
   get "/todo",                          to:"todo#index",                              as: :todo
