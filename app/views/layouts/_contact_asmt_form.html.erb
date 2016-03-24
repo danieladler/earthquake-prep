@@ -1,13 +1,19 @@
 <fieldset id="contact-field">
   <h2>Contacts</h2>
   <p class="form-descr">
-    Ask a friend or relative who lives outside the state and explain to
-    them that after a disaster they will be your means of communicating with
-    other family members, both in and out of state. Make sure they understand
-    it will be their responsibility to be available to take calls immediately
-    following a disater in your area
+    Add a friend or relative who lives outside the state who will be your means
+    of communicating with other family members, both in and out of state, after
+    an earthquake.
   </p>
-  <form action="/assessment/update_contacts" method="post" class="asmt-form" id="contact-form">
+  <ul id="contact-list">
+    <% current_user.contacts.each do |c| %>
+      <li class="con-list-item">
+        <span><strong>Name:</strong> <%= c.name %></span>
+        <button class="delete-con" href= "<%= remove_contact_path(c.id)%>"> x </button>
+      </li>
+    <% end %>
+  </ul>
+  <form action="/assessment/add_contact" method="post" class="asmt-form" id="contact-form">
     <input name="utf8" type="hidden" value="✓">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
 
@@ -24,13 +30,9 @@
         <label for="text_field">email</label>
         <input type="text" class="text_field" name="con_email">
       </p>
-      <p>
-        <label for="text_field">location</label>
-        <input type="text" class="text_field" name="con_loc">
-      </p>
     </div>
 
-    <button class="add-dep-btn">Add Contact</button>
+    <button class="add-con-btn">Add Contact</button>
     <br>
     <input type="submit" value="Save Contacts">
   </form>

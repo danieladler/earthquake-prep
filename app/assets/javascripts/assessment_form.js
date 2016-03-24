@@ -42,7 +42,15 @@ $(document).ready(function () {
     parent.remove();
   });
 
-  conForm.submit( function(e) {
-    e.preventDefault();
-  });
+  // conForm.submit( function(e) {
+    // e.preventDefault();
+    // details = conForm.serialize();
+    // var li = (
+    //   "<li class='dep-list-item'><span>Name: " + depForm.find('input[name="dep_name"]').val() + "</span><button class='delete-dep'> x </button></li>"
+    // )
+
+    // $.post('/assessment/add_contact', details, function(data) {
+      // $("#dependent-list").append(li);
+    // })
+  // });
 });
