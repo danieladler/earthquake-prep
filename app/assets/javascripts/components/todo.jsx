@@ -62,8 +62,8 @@ var PrepItem = React.createClass({
   },
   render: function() {
     var body;
-    if (this.props.prep.complete) {
-      body = <p className="crossed-out">{this.props.question.contents}</p>
+    if (this.props.prep.completed) {
+      body = <p className="crossed-out">{this.props.prep.question.contents}</p>
     } else {
       body = <p>{this.props.prep.question.contents}</p>
     }
