@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get "/todo",                          to:"todo#index",                              as: :todo
   get "/todo/preps",                    to:"todo#preps",                              as: :preps
+  post "/todo/preps",                   to:"todo#update_prep"                       
 
   get "/plan",                          to: "plan#index",                              as: :plan
 end

@@ -12,10 +12,14 @@ var Todo = React.createClass({
     this.setState({currentPrep: prep})
   },
   markComplete: function() {
+    var reactParent = this;
     var cp = this.state.currentPrep;
-    var updatedPrepList = this.state.preps;
-    cp["complete"] = true
-    this.setState({preps: updatedPrepList, currentPrep: null});
+    cp.completed = true;
+
+    $.post("/todo/preps", {prep: cp}).then(function(prep) {
+      var updatedPrepList = reactParent.state.preps;
+      reactParent.setState({preps: updatedPrepList, currentPrep: null});
+    });
   },
   render: function() {
     return(
