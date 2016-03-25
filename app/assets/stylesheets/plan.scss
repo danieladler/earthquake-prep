@@ -1,8 +1,15 @@
-.plan-content {
+.plan-block {
   @include span-columns(12);
-  padding-top: 20px;
+  margin-top: 40px;
+  padding-top: 5px;
+  border-top: 1px solid gray;
 
   h2 {
-    font-size: 24px;
+    font-size: 38px;
+  }
+
+  .plan-content {
+    padding-left: 40px;
+    // @include shift(1);
   }
 }
