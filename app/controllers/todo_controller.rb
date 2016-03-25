@@ -5,7 +5,7 @@ class TodoController < ApplicationController
   end
 
   def preps
-    @preps = Preparation.where(user_id: current_user.id)
+    @preps = Preparation.where(user_id: current_user.id).order(:prep_type, completed: :asc)
     render :json => @preps , :include => :question
   end
 

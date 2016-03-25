@@ -67,9 +67,12 @@ var PrepItem = React.createClass({
   render: function() {
     var body;
     if (this.props.prep.completed) {
-      body = <p className="crossed-out">{this.props.prep.question.contents}</p>
+      body = (
+        <p className="crossed-out" data-prep-type={this.props.prep.prep_type}>{this.props.prep.question.contents}</p>
+      )
+
     } else {
-      body = <p>{this.props.prep.question.contents}</p>
+      body = <p data-prep-type={this.props.prep.prep_type}>{this.props.prep.prep_type}: {this.props.prep.question.contents}</p>
     }
     return(
       <div onClick={this.showPrep} className="prep-item">
@@ -90,8 +93,8 @@ var ShowPrep = React.createClass({
       body = (
         <div>
           <h2>{this.props.prep.prep_type} Preparation:</h2>
-          <h3>{this.props.prep.question.contents}</h3>
-          <p>Notes:</p>
+          <p>{this.props.prep.question.contents}</p>
+          <h3>Notes:</h3>
           <button onClick={this.markComplete}> Complete & Save </button>
         </div>
       )

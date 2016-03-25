@@ -18,7 +18,8 @@
   .prep-list {
     float: left;
     @include span-columns(8);
-    border: 1px solid black;
+    border: 1px solid gray;
+    background-color: rgb(195, 195, 195);
     padding: 20px 20px 0 20px;
 
     .prep-check {
@@ -32,6 +33,17 @@
       &:hover {
         background-color: rgb(153, 153, 153);
       }
+
+      [data-prep-type="Dependent"] {
+        background-color: rgba(149, 192, 255, 0.2);
+      }
+      [data-prep-type="Home"] {
+        background-color: rgba(155, 218, 147, 0.2);
+      }
+      [data-prep-type="Contact"] {
+        background-color: rgba(233, 209, 156, 0.2);
+      }
+
     }
     &:first-child {
       padding-top: 10px;
@@ -41,6 +53,7 @@
   .show-prep {
     @include span-columns(4);
     background-color: rgb(126, 129, 126);
+    border: 1px solid gray;
     padding: 20px 20px;
     position: fixed;
     right: 40px;
@@ -50,6 +63,6 @@
 
   .crossed-out {
     text-decoration: line-through;
+    color: rgb(120, 120, 120);
   }
-
 }

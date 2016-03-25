@@ -27,7 +27,7 @@ class Todo
 
   # home preparations
   def completed_home_preps
-    current_user.home_preparations.where(completed?: true).count.to_f
+    current_user.home_preparations.where(completed: true).count.to_f
   end
 
   def total_home_preps
@@ -40,7 +40,7 @@ class Todo
 
   # dependent preparations
   def completed_dependent_preps
-    current_user.dependent_preparations.where(completed?: true).count.to_f
+    current_user.dependent_preparations.where(completed: true).count.to_f
   end
 
   def total_dependent_preps
@@ -53,7 +53,7 @@ class Todo
 
   # contact preparations
   def completed_contact_preps
-    current_user.contact_preparations.where(completed?: true).count.to_f
+    current_user.contact_preparations.where(completed: true).count.to_f
   end
 
   def total_contact_preps
