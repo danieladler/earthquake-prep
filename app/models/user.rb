@@ -22,6 +22,14 @@ class User < ActiveRecord::Base
   end
 
   def no_pet_dependents
-    self.dependents.where(human: false).count == 0 ? true : false 
+    self.dependents.where(human: false).count == 0 ? true : false
+  end
+
+  def all_humans
+    self.dependents.where(human: true)
+  end
+
+  def all_pets
+    self.dependents.where(human: false)
   end
 end
