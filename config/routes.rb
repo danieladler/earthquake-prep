@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   post "/assessment/update_home",       to: "home_assessment#update_home",            as: :update_home
   post "/assessment/add_dependent",     to: "dependent_assessment#add_dependent",     as: :add_dependent
   delete "/assessment/remove_dependent/:id", to: "dependent_assessment#remove_dependent", as: :remove_dependent
-  # post: update_contacts
+  post "/assessment/add_contact",     to: "contact_assessment#add_contact",     as: :add_contact
+  delete "/assessment/remove_contact/:id", to: "contact_assessment#remove_contact", as: :remove_contact
 
   get "/todo",                          to:"todo#index",                              as: :todo
-
 end

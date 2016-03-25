@@ -1,0 +1,36 @@
+<fieldset id="contact-field">
+  <h2>Contacts</h2>
+  <p class="form-descr">
+    Add a friend or relative who lives outside the state who will be your means
+    of communicating with other family members, both in and out of state, after
+    an earthquake.
+  </p>
+  <ul id="contact-list">
+    <% current_user.contacts.each do |c| %>
+      <li class="asmt-list-item">
+        <span><strong>Name:</strong> <%= c.name %></span>
+        <button class="delete-record" href= "<%= remove_contact_path(c.id)%>"> x </button>
+      </li>
+    <% end %>
+  </ul>
+  <form action="/assessment/add_contact" method="post" class="asmt-form" id="contact-form">
+    <input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+
+    <div class="contact-block">
+      <p class="form-field">
+        <label for="text_field">Name</label>
+        <input type="text" class="text_field" name="con_name">
+      </p>
+      <p class="form-field">
+        <label for="text_field">Phone</label>
+        <input type="text" class="text_field" name="con_phone">
+      </p>
+      <p class="form-field">
+        <label for="text_field">email</label>
+        <input type="text" class="text_field" name="con_email">
+      </p>
+    </div>
+    <button id="submit-con">Add Contact</button>
+  </form>
+</fieldset>

@@ -15,5 +15,7 @@ class AssessmentController < ApplicationController
     end
 
     @dependents = Dependent.find_by(user_id: current_user.id)
+
+    @contacts = Contact.find_by(user_id: current_user.id)
   end
 end

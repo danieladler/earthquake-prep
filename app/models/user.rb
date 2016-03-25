@@ -16,4 +16,12 @@ class User < ActiveRecord::Base
   validates :email, format: {with: /@/}
   validates :username, presence: true, uniqueness:true
   has_secure_password
+
+  def no_human_dependents
+    self.dependents.where(human: true).count == 0 ? true : false
+  end
+
+  def no_pet_dependents
+    self.dependents.where(human: false).count == 0 ? true : false 
+  end
 end
