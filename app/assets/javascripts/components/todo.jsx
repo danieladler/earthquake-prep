@@ -53,7 +53,7 @@ var PrepList = React.createClass({
     }
 
     return(
-      <div className="prep-type-list">
+      <div className="prep-list">
         {prepDivs}
       </div>
     )
@@ -93,7 +93,7 @@ var ShowPrep = React.createClass({
           <h3>{this.props.prep.question.contents}</h3>
           <p>Notes:</p>
           <button onClick={this.markComplete}> Complete & Save </button>
-    </div>
+        </div>
       )
     } else {
       body = <h2> select a prep on the left to edit </h2>
