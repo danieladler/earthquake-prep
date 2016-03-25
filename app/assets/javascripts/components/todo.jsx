@@ -1,12 +1,12 @@
-var preps = [
-  {id:1, prep_type:"Home", question_contents: "Make sure your home is securely anchored to its foundation", complete: false},
-  {id:2, prep_type:"Home", question_contents: "Bolt and brace heavy furniture to wall studs", complete: false},
-  {id:3, prep_type:"Home", question_contents: "Identify location of gas shutoff and how to turn it off.", complete: true}
-]
-
 var Todo = React.createClass({
   getInitialState: function() {
-    return {preps: preps, currentPrep: null}
+    return {preps: [], currentPrep: null}
+  },
+  componentDidMount: function() {
+    var reactParent = this;
+    $.ajax("/todo/preps").then(function(preps) {
+      reactParent.setState({preps: preps});
+    });
   },
   setCurrentPrep: function(prep) {
     this.setState({currentPrep: prep})
@@ -17,12 +17,11 @@ var Todo = React.createClass({
     cp["complete"] = true
     this.setState({preps: updatedPrepList, currentPrep: null});
   },
-
   render: function() {
     return(
       <div>
         <Dashboard />
-        <PrepTypeList handleClick={this.setCurrentPrep} preps={this.state.preps}/>
+        <PrepList handleClick={this.setCurrentPrep} preps={this.state.preps}/>
         <ShowPrep prep={this.state.currentPrep} handleClick={this.markComplete}/>
       </div>
     );
@@ -41,7 +40,7 @@ var Dashboard = React.createClass({
   }
 });
 
-var PrepTypeList = React.createClass({
+var PrepList = React.createClass({
   render: function() {
     var prepDivs = [];
 
@@ -64,9 +63,9 @@ var PrepItem = React.createClass({
   render: function() {
     var body;
     if (this.props.prep.complete) {
-      body = <p className="crossed-out">{this.props.prep.question_contents}</p>
+      body = <p className="crossed-out">{this.props.question.contents}</p>
     } else {
-      body = <p>{this.props.prep.question_contents}</p>
+      body = <p>{this.props.prep.question.contents}</p>
     }
     return(
       <div onClick={this.showPrep} className="prep-item">
@@ -87,7 +86,7 @@ var ShowPrep = React.createClass({
       body = (
         <div>
           <h2>{this.props.prep.prep_type} Preparation:</h2>
-          <h3>{this.props.prep.question_contents}</h3>
+          <h3>{this.props.prep.question.contents}</h3>
           <p>Notes:</p>
           <button onClick={this.markComplete}> Complete & Save </button>
     </div>
