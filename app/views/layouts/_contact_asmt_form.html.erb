@@ -7,7 +7,7 @@
   </p>
   <ul id="contact-list">
     <% current_user.contacts.each do |c| %>
-      <li class="con-list-item">
+      <li class="asmt-list-item">
         <span><strong>Name:</strong> <%= c.name %></span>
         <button class="delete-record" href= "<%= remove_contact_path(c.id)%>"> x </button>
       </li>
@@ -18,19 +18,19 @@
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
 
     <div class="contact-block">
-      <p>
+      <p class="form-field">
         <label for="text_field">Name</label>
         <input type="text" class="text_field" name="con_name">
       </p>
-      <p>
+      <p class="form-field">
         <label for="text_field">Phone</label>
         <input type="text" class="text_field" name="con_phone">
       </p>
-      <p>
+      <p class="form-field">
         <label for="text_field">email</label>
         <input type="text" class="text_field" name="con_email">
       </p>
     </div>
-    <button class="add-con-btn">Add Contact</button>
+    <button id="submit-con">Add Contact</button>
   </form>
 </fieldset>

@@ -22,7 +22,7 @@ $(document).ready(function () {
     e.preventDefault();
     details = depForm.serialize();
     var li = (
-      "<li class='dep-list-item'><span>Name: " + depForm.find('input[name="dep_name"]').val() + "</span><button class='delete-dep'> x </button></li>"
+      "<li class='asmt-list-item'><span>Name: " + depForm.find('input[name="dep_name"]').val() + "</span><button class='delete-record'> x </button></li>"
     )
     $.post('/assessment/add_dependent', details, function(data) {
       $("#dependent-list").append(li);
@@ -33,7 +33,7 @@ $(document).ready(function () {
     e.preventDefault();
     details = conForm.serialize();
     var li = (
-      "<li class='con-list-item'><span>Name: " + conForm.find('input[name="con_name"]').val() + "</span><button class='delete-con'> x </button></li>"
+      "<li class='asmt-list-item'><span>Name: " + conForm.find('input[name="con_name"]').val() + "</span><button class='delete-record'> x </button></li>"
     )
     $.post('/assessment/add_contact', details, function(data) {
       $("#contact-list").append(li);
