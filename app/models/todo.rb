@@ -2,10 +2,15 @@ class Todo
   include ActiveModel::Model
   include ActiveModel::Validations
 
-  attr_accessor :user_id
+  attr_accessor :user_id, :dash_stats
 
   def initialize(user_id)
     @user_id = user_id
+    @dash_stats = {
+      completed: self.completed_all_preps,
+      total: self.total_all_preps,
+      all: self.all_prep_progress
+    }
   end
 
   def current_user

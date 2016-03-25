@@ -20,4 +20,8 @@ class TodoController < ApplicationController
       render json: @prep.errors, status: 400
     end
   end
+
+  def dash
+    render json: Todo.new(current_user.id)
+  end
 end
