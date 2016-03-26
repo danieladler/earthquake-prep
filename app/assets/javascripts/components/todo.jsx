@@ -1,11 +1,14 @@
 var Todo = React.createClass({
   getInitialState: function() {
-    return {preps: [], currentPrep: null}
+    return {preps: [], dash: [], currentPrep: null}
   },
   componentDidMount: function() {
     var reactParent = this;
     $.ajax("/todo/preps").then(function(preps) {
       reactParent.setState({preps: preps});
+    });
+    $.ajax("todo/dash").then(function(dash){
+      reactParent.setState({dash: dash});
     });
   },
   setCurrentPrep: function(prep) {
@@ -24,7 +27,7 @@ var Todo = React.createClass({
   render: function() {
     return(
       <div>
-        <Dashboard />
+        <Dashboard dash={this.state.dash}/>
         <PrepList handleClick={this.setCurrentPrep} preps={this.state.preps}/>
         <ShowPrep prep={this.state.currentPrep} handleClick={this.markComplete}/>
       </div>
@@ -34,15 +37,42 @@ var Todo = React.createClass({
 
 var Dashboard = React.createClass({
   render: function() {
-    var body;
-    body = <h1> dashboard here </h1>
+    var dashStats = [];
+
+    for (var i = 0; i < this.props.dash.length; i++) {
+      dashStats.push(<DashStat key={i} stat={this.props.dash[i]}/>)
+    }
+
     return(
       <div className="prep-dashboard">
-        {body}
+        {dashStats}
       </div>
     )
   }
 });
+
+var DashStat = React.createClass({
+  render: function() {
+    var body;
+    body = (
+      <div>
+        <div id="completed-by-int">
+          <span id="completed-preps-int">{this.props.stat.completed_preps}</span>
+          of
+          <span id="total-preps-int">{this.props.stat.total_preps}</span>
+        </div>
+        <div id="completed-by-pct">
+          <span id="all-preps-pct">{this.props.stat.all_preps}</span>%
+        </div>
+      </div>
+    )
+    return(
+      <div>
+        {body}
+      </div>
+    )
+  }
+})
 
 var PrepList = React.createClass({
   render: function() {
@@ -70,7 +100,6 @@ var PrepItem = React.createClass({
       body = (
         <p className="crossed-out" data-prep-type={this.props.prep.prep_type}>{this.props.prep.question.contents}</p>
       )
-
     } else {
       body = <p data-prep-type={this.props.prep.prep_type}>{this.props.prep.prep_type}: {this.props.prep.question.contents}</p>
     }

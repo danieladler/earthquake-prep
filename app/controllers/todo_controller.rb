@@ -22,6 +22,9 @@ class TodoController < ApplicationController
   end
 
   def dash
-    render json: Todo.new(current_user.id)
+    # render json: Todo.new(current_user.id)
+
+    @arr = [].push(Todo.new(current_user.id))
+    render json: @arr
   end
 end

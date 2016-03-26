@@ -2,15 +2,13 @@ class Todo
   include ActiveModel::Model
   include ActiveModel::Validations
 
-  attr_accessor :user_id, :dash_stats
+  attr_accessor :user_id, :completed_preps, :total_preps, :all_preps
 
   def initialize(user_id)
     @user_id = user_id
-    @dash_stats = {
-      completed: self.completed_all_preps,
-      total: self.total_all_preps,
-      all: self.all_prep_progress
-    }
+    @completed_preps = self.completed_all_preps
+    @total_preps = self.total_all_preps
+    @all_preps = self.all_prep_progress
   end
 
   def current_user
@@ -27,7 +25,7 @@ class Todo
   end
 
   def all_prep_progress
-    completed_all_preps/total_all_preps
+    (completed_all_preps/total_all_preps).round(2)
   end
 
   # home preparations
