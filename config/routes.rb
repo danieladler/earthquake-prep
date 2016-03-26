@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   delete "/assessment/remove_contact/:id", to: "contact_assessment#remove_contact", as: :remove_contact
 
   get "/todo",                          to:"todo#index",                              as: :todo
+  get "/todo/preps",                    to:"todo#preps",                              as: :preps
+  post "/todo/preps",                   to:"todo#update_prep"
+  get "todo/dash",                      to:"todo#dash",                               as: :dash
 
   get "/plan",                          to: "plan#index",                              as: :plan
 end

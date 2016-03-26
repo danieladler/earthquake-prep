@@ -1,28 +1,34 @@
-var preps = [
-  {id:1, prep_type:"Home", question_contents: "Make sure your home is securely anchored to its foundation", complete: false},
-  {id:2, prep_type:"Home", question_contents: "Bolt and brace heavy furniture to wall studs", complete: false},
-  {id:3, prep_type:"Home", question_contents: "Identify location of gas shutoff and how to turn it off.", complete: true}
-]
-
 var Todo = React.createClass({
   getInitialState: function() {
-    return {preps: preps, currentPrep: null}
+    return {preps: [], dash: [], currentPrep: null}
+  },
+  componentDidMount: function() {
+    var reactParent = this;
+    $.ajax("/todo/preps").then(function(preps) {
+      reactParent.setState({preps: preps});
+    });
+    $.ajax("todo/dash").then(function(dash){
+      reactParent.setState({dash: dash});
+    });
   },
   setCurrentPrep: function(prep) {
     this.setState({currentPrep: prep})
   },
   markComplete: function() {
+    var reactParent = this;
     var cp = this.state.currentPrep;
-    var updatedPrepList = this.state.preps;
-    cp["complete"] = true
-    this.setState({preps: updatedPrepList, currentPrep: null});
-  },
+    cp.completed = true;
 
+    $.post("/todo/preps", {prep: cp}).then(function(prep) {
+      var updatedPrepList = reactParent.state.preps;
+      reactParent.setState({preps: updatedPrepList, currentPrep: null});
+    });
+  },
   render: function() {
     return(
       <div>
-        <Dashboard />
-        <PrepTypeList handleClick={this.setCurrentPrep} preps={this.state.preps}/>
+        <Dashboard dash={this.state.dash}/>
+        <PrepList handleClick={this.setCurrentPrep} preps={this.state.preps}/>
         <ShowPrep prep={this.state.currentPrep} handleClick={this.markComplete}/>
       </div>
     );
@@ -31,17 +37,44 @@ var Todo = React.createClass({
 
 var Dashboard = React.createClass({
   render: function() {
-    var body;
-    body = <h1> dashboard here </h1>
+    var dashStats = [];
+
+    for (var i = 0; i < this.props.dash.length; i++) {
+      dashStats.push(<DashStat key={i} stat={this.props.dash[i]}/>)
+    }
+
     return(
       <div className="prep-dashboard">
-        {body}
+        {dashStats}
       </div>
     )
   }
 });
 
-var PrepTypeList = React.createClass({
+var DashStat = React.createClass({
+  render: function() {
+    var body;
+    body = (
+      <div>
+        <div id="completed-by-int">
+          <span id="completed-preps-int">{this.props.stat.completed_preps}</span>
+          of
+          <span id="total-preps-int">{this.props.stat.total_preps}</span>
+        </div>
+        <div id="completed-by-pct">
+          <span id="all-preps-pct">{this.props.stat.all_preps}</span>%
+        </div>
+      </div>
+    )
+    return(
+      <div>
+        {body}
+      </div>
+    )
+  }
+})
+
+var PrepList = React.createClass({
   render: function() {
     var prepDivs = [];
 
@@ -50,7 +83,7 @@ var PrepTypeList = React.createClass({
     }
 
     return(
-      <div className="prep-type-list">
+      <div className="prep-list">
         {prepDivs}
       </div>
     )
@@ -63,10 +96,12 @@ var PrepItem = React.createClass({
   },
   render: function() {
     var body;
-    if (this.props.prep.complete) {
-      body = <p className="crossed-out">{this.props.prep.question_contents}</p>
+    if (this.props.prep.completed) {
+      body = (
+        <p className="crossed-out" data-prep-type={this.props.prep.prep_type}>{this.props.prep.question.contents}</p>
+      )
     } else {
-      body = <p>{this.props.prep.question_contents}</p>
+      body = <p data-prep-type={this.props.prep.prep_type}>{this.props.prep.prep_type}: {this.props.prep.question.contents}</p>
     }
     return(
       <div onClick={this.showPrep} className="prep-item">
@@ -87,10 +122,10 @@ var ShowPrep = React.createClass({
       body = (
         <div>
           <h2>{this.props.prep.prep_type} Preparation:</h2>
-          <h3>{this.props.prep.question_contents}</h3>
-          <p>Notes:</p>
+          <p>{this.props.prep.question.contents}</p>
+          <h3>Notes:</h3>
           <button onClick={this.markComplete}> Complete & Save </button>
-    </div>
+        </div>
       )
     } else {
       body = <h2> select a prep on the left to edit </h2>
