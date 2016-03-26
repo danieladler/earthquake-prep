@@ -10,28 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind+Siliguri:400,300' rel='stylesheet' type='text/css'>  </head>
   <body class="<%= @landing ? 'landing' : '' %>">
-    <div class="header-wrap">
-      <header>
-        <%= link_to root_path do %>
-          <div id="logo">
-            <i class="fa fa-life-ring fa-4"></i>
-            <span>Ready.city</span>
-          </div>
-        <% end %>
-        <ul>
-          <% if current_user %>
-            <li> Hello, <strong><%= current_user.username %></strong></li>
-            <li><%= link_to "Assessment", assessment_form_path %></li>
-            <li><%= link_to "To-Do List", todo_path %></li>
-            <li><%= link_to "Plan", plan_path %></li>
-            <li><%= link_to "Sign Out", sign_out_path %></li>
-          <% else %>
-            <li><%= link_to "Sign Up", sign_up_path %></li>
-            <li><%= render "refills/sign_in_popup" %></li>
-          <% end %>
-        </ul>
-      </header>
-    </div>
+    <%= render "layouts/header" %>
     <div class="main">
       <% if flash[:notice] %>
         <div class="error-messages">
