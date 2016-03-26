@@ -2,10 +2,13 @@ class Todo
   include ActiveModel::Model
   include ActiveModel::Validations
 
-  attr_accessor :user_id
+  attr_accessor :user_id, :completed_preps, :total_preps, :all_preps
 
   def initialize(user_id)
     @user_id = user_id
+    @completed_preps = self.completed_all_preps
+    @total_preps = self.total_all_preps
+    @all_preps = self.all_prep_progress
   end
 
   def current_user
@@ -22,12 +25,12 @@ class Todo
   end
 
   def all_prep_progress
-    completed_all_preps/total_all_preps
+    (completed_all_preps/total_all_preps).round(2)
   end
 
   # home preparations
   def completed_home_preps
-    current_user.home_preparations.where(completed?: true).count.to_f
+    current_user.home_preparations.where(completed: true).count.to_f
   end
 
   def total_home_preps
@@ -40,7 +43,7 @@ class Todo
 
   # dependent preparations
   def completed_dependent_preps
-    current_user.dependent_preparations.where(completed?: true).count.to_f
+    current_user.dependent_preparations.where(completed: true).count.to_f
   end
 
   def total_dependent_preps
@@ -53,7 +56,7 @@ class Todo
 
   # contact preparations
   def completed_contact_preps
-    current_user.contact_preparations.where(completed?: true).count.to_f
+    current_user.contact_preparations.where(completed: true).count.to_f
   end
 
   def total_contact_preps
