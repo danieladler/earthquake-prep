@@ -4,6 +4,13 @@
   h1 {
     font-size: 36px;
   }
+
+  .page-content {
+    @include span-columns(10);
+    @include shift(1);
+
+    padding-top: 30px;
+  }
 }
 
 .main {
@@ -11,7 +18,17 @@
 }
 
 body {
-  background-color: #ababab;
+  background-color: rgb(240, 240, 240);
+  font-family: "Roboto";
+
+  p {
+    font-weight: 300;
+  }
+
+  h1, h2 {
+    font-family: "Roboto";
+    font-weight: 500;
+  }
 }
 
 body.landing {

@@ -1,68 +1,70 @@
 <div class="container below-header">
-  <h1> <%= current_user.username %>'s Plan </h1>
-  <p> Here's what to do if an earthquake hits. </p>
-  <div class="plan-block">
-    <div class="plan-content">
-      <h2>Right Away:</h2>
+  <div class="page-content" id="plan-container">
+    <h1> <%= current_user.username %>'s Plan </h1>
+    <p> Here's what to do if an earthquake hits. </p>
+    <div class="plan-block">
+      <div class="plan-content">
+        <h2>Right Away:</h2>
+      </div>
     </div>
-  </div>
-  <div class="plan-block">
-    <div class="plan-content">
-      <h2>Check on Dependents</h2>
-        <% if current_user.dependents.count == 0 %>
-          You have not added any dependents yet.
-        <% else %>
-          <ul>
-            <li class="list-sec-head">Humans:</li>
-            <% current_user.all_humans.each do |h| %>
-                <li><%= h.name %></li>
-            <% end %>
-            <li class="list-sec-head">Pets:</li>
-            <% current_user.all_pets.each do |p| %>
-                <li><%= p.name %></li>
-            <% end %>
-          </ul>
-        <% end %>
-    </div>
-  </div>
-  <div class="plan-block">
-    <div class="plan-content">
-      <h2>Grab your gear</h2>
-    </div>
-  </div>
-  <div class="plan-block">
-    <div class="plan-content">
-      <h2>Head to a safe Location</h2>
-        <% if current_user.locations.count == 0 %>
-          You have not set up any locations yet. Go to the <%= link_to "assessment", assessment_form_path %> to add one!
-        <% else %>
-          <% current_user.locations.each do |l| %>
-            <%= l.name %>
+    <div class="plan-block">
+      <div class="plan-content">
+        <h2>Check on Dependents</h2>
+          <% if current_user.dependents.count == 0 %>
+            You have not added any dependents yet.
+          <% else %>
+            <ul>
+              <li class="list-sec-head">Humans:</li>
+              <% current_user.all_humans.each do |h| %>
+                  <li><%= h.name %></li>
+              <% end %>
+              <li class="list-sec-head">Pets:</li>
+              <% current_user.all_pets.each do |p| %>
+                  <li><%= p.name %></li>
+              <% end %>
+            </ul>
           <% end %>
-        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="plan-block">
-    <div class="plan-content">
-      <h2>Check in with your contacts</h2>
-        <% if current_user.contacts.count == 0 %>
-          You have not set up any contacts yet. Go to the <%= link_to "assessment", assessment_form_path %> to add one!
-        <% else %>
-          <table>
-            <tr>
-              <th>Name</th>
-              <th>Phone</th>
-              <th>Email</th>
-            </tr>
-            <% current_user.contacts.each do |c| %>
-              <tr>
-                <td><%= c.name %></td>
-                <td><%= c.phone %></td>
-                <td><%= c.email %></td>
-              </tr>
+    <div class="plan-block">
+      <div class="plan-content">
+        <h2>Grab your gear</h2>
+      </div>
+    </div>
+    <div class="plan-block">
+      <div class="plan-content">
+        <h2>Head to a safe Location</h2>
+          <% if current_user.locations.count == 0 %>
+            You have not set up any locations yet. Go to the <%= link_to "assessment", assessment_form_path %> to add one!
+          <% else %>
+            <% current_user.locations.each do |l| %>
+              <%= l.name %>
             <% end %>
-          </table>
-        <% end %>
+          <% end %>
+      </div>
+    </div>
+    <div class="plan-block">
+      <div class="plan-content">
+        <h2>Check in with your contacts</h2>
+          <% if current_user.contacts.count == 0 %>
+            You have not set up any contacts yet. Go to the <%= link_to "assessment", assessment_form_path %> to add one!
+          <% else %>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+              </tr>
+              <% current_user.contacts.each do |c| %>
+                <tr>
+                  <td><%= c.name %></td>
+                  <td><%= c.phone %></td>
+                  <td><%= c.email %></td>
+                </tr>
+              <% end %>
+            </table>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>

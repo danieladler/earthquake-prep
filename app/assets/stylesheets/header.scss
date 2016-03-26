@@ -5,21 +5,35 @@
   width: 100%;
   top: 0;
   left: 0;
+  background-color: #4285F4;
   border-bottom: 1px solid white;
 
   header {
     @include outer-container;
+    font-family: 'Alegreya Sans SC', sans-serif;
 
     #logo {
       height: $header-height;
-      width: 60px;
+      // width: 60px;
       // background-color: #779c6e;
       display: inline-block;
+      padding: 10px 0;
+
+      i, span {
+        color: white;
+        display: inline-block;
+        clear: none;
+        float: left;
+      }
 
       i {
         font-size: 3em;
-        color: white;
         padding-top: 6px;
+      }
+
+      span {
+        padding: 5px 0 0 15px;
+        font-size: 2em;
       }
     }
 
@@ -45,11 +59,23 @@
       display: inline-block;
       float: right;
       li {
-        padding: 5px 10px;
+        padding: 25px 10px;
         display: inline-block;
+        color: white;
+        font-weight: 300;
         &:last-child {
           padding-right: 0;
         }
+        a:visited {
+          color: white;
+        }
+        a:hover {
+          color: orange;
+        }
+      }
+
+      label {
+        font-weight: 300;
       }
     }
   }
