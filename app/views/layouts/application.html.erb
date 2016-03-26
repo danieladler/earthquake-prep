@@ -7,12 +7,16 @@
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:500' rel='stylesheet' type='text/css'>
   </head>
   <body class="<%= @landing ? 'landing' : '' %>">
     <div class="header-wrap">
       <header>
         <%= link_to root_path do %>
-          <div id="logo"><i class="fa fa-life-ring fa-4"></i></div>
+          <div id="logo">
+            <i class="fa fa-life-ring fa-4"></i>
+            <span>Ready.city</span>
+          </div>
         <% end %>
         <ul>
           <% if current_user %>
