@@ -1,13 +1,35 @@
-// #container-1 {
-//   height: 400px;
-//   background-color: white;
-// }
-//
-// #container-2 {
-//   height: 200px;
-//   background-color: blue;
-// }
-//
-// #container-3 {
-//
-// }
+#container-1 {
+  height: (600px - $header-height);
+  @include outer-container;
+  // width: 100%;
+  // top: 0;
+  // left: 0;
+}
+
+.landing-content {
+  @include outer-container;
+  padding-top: 40px;
+}
+
+#container-2 {
+  height: 400px;
+  background-color: white;
+  margin: 0 auto;
+
+  #landing-cards {
+    @include span-columns(10);
+    @include shift(1);
+
+    .card {
+      @include span-columns(2);
+      height: 100px;
+      background-color: rgb(200, 200, 200);
+    }
+  }
+}
+
+#container-3 {
+  height: 200px;
+  background-color: rgb(120, 120, 120);
+  margin: 0 auto;
+}

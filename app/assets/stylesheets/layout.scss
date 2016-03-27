@@ -1,3 +1,13 @@
+.landing {
+  background: image-url("aerial-neighborhood-2-opaque.jpg");
+  background-size: cover;
+  position: absolute;
+  height: 600px;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
 .container {
   @include outer-container;
 
@@ -15,11 +25,14 @@
 
 .main {
   padding-top: $header-height ;
+  z-index: 1;
+  position: relative;
 }
 
 body {
   background-color: rgb(240, 240, 240);
   font-family: "Roboto";
+  margin: 0;
 
   p {
     font-weight: 300;
@@ -29,13 +42,6 @@ body {
     font-family: "Roboto";
     font-weight: 500;
   }
-}
-
-body.landing {
-  background: image-url("aerial-neighborhood-2-opaque.jpg");
-  background-size: cover;
-  height: 100%;
-  position: relative;
 }
 
 .error-messages {
