@@ -7,6 +7,10 @@ var Todo = React.createClass({
     $.ajax("/todo/preps").then(function(preps) {
       reactParent.setState({preps: preps});
     });
+    reactParent.updateDash();
+  },
+  updateDash: function() {
+    var reactParent = this;
     $.ajax("todo/dash").then(function(dash){
       reactParent.setState({dash: dash});
     });
@@ -23,6 +27,7 @@ var Todo = React.createClass({
       var updatedPrepList = reactParent.state.preps;
       reactParent.setState({preps: updatedPrepList, currentPrep: null});
     });
+    reactParent.updateDash();
   },
   render: function() {
     return(
