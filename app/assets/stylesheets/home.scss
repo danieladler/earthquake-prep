@@ -1,13 +1,76 @@
-// #container-1 {
-//   height: 400px;
-//   background-color: white;
-// }
-//
-// #container-2 {
-//   height: 200px;
-//   background-color: blue;
-// }
-//
-// #container-3 {
-//
-// }
+.landing-logged-in {
+  background: image-url("house-car-vintage-old.jpg");
+  background-size: cover;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -999;
+}
+
+#container-1 {
+  height: (600px - $header-height);
+  @include outer-container;
+}
+
+.landing-content {
+  @include outer-container;
+  padding: 40px 0;
+}
+
+#container-2 {
+  background-color: white;
+
+  #landing-cards {
+    @include shift(1);
+    @include span-columns(10);
+    $card-border-color: #333;
+
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+
+    .card {
+      @include flex-basis(15em);
+      @include flex-grow(1);
+      margin: 0 1em;
+      border-radius: 1em;
+
+      h4 {
+        text-align: center;
+        padding: 5px 0;
+        margin: 0;
+        background-color: whitesmoke;
+      }
+
+      .card-copy {
+        background-color: whitesmoke;
+        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 12px;
+        padding: 5px 5px;
+      }
+    }
+
+    .card-image {
+      height: 15em;
+      background: gray;
+      overflow: hidden;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+#container-3 {
+  background-color: rgb(120, 120, 120);
+  padding: 40px 0;
+
+  #call-to-action {
+    @include shift(1);
+    @include span-columns(10);
+    text-align: center;
+  }
+}
