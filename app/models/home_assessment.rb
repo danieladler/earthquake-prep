@@ -6,8 +6,8 @@ class HomeAssessment
 
   def initialize(home)
     @home = home
-    @user_id = home.user_id
     @home_id = home.id
+    @user_id = home.user_id
   end
 
   def new_preparation

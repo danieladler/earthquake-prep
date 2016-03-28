@@ -5,6 +5,7 @@ class DependentAssessmentController < ApplicationController
     @dependent.update_db_values(params)
     if @dependent.save
       dep_asmt_checks(@dependent)
+      gear_asmt_checks(current_user)
     else
       render "assessment/assessment_form"
     end
@@ -32,5 +33,10 @@ class DependentAssessmentController < ApplicationController
   def dep_asmt_checks(dependent)
     @da = DependentAssessment.new(dependent)
     @da.run_all_checks
+  end
+
+  def gear_asmt_checks(user)
+    @ga = GearAssessment.new(user)
+    @ga.run_all_checks
   end
 end
