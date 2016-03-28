@@ -5,13 +5,11 @@
 
 .landing-content {
   @include outer-container;
-  padding-top: 40px;
+  padding: 40px 0;
 }
 
 #container-2 {
-  height: 400px;
   background-color: white;
-  margin: 0 auto;
 
   #landing-cards {
     @include shift(1);
@@ -39,6 +37,7 @@
         background-color: whitesmoke;
         border-bottom-right-radius: 12px;
         border-bottom-left-radius: 12px;
+        padding: 5px 5px;
       }
     }
 
@@ -57,7 +56,12 @@
 }
 
 #container-3 {
-  height: 200px;
   background-color: rgb(120, 120, 120);
-  margin: 0 auto;
+  padding: 40px 0;
+
+  #call-to-action {
+    @include shift(1);
+    @include span-columns(10);
+    text-align: center;
+  }
 }
