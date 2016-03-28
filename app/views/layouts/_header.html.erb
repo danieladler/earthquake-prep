@@ -8,7 +8,8 @@
     <% end %>
     <ul>
       <% if current_user %>
-        <li> Hello, <strong><%= current_user.username %></strong></li>
+        <li> Hello, <strong><%= current_user.username%></strong></li>
+        <li id="vertical-spacer">|</li>
         <li><%= link_to "Assessment", assessment_form_path %></li>
         <li><%= link_to "To-Do List", todo_path %></li>
         <li><%= link_to "Plan", plan_path %></li>
