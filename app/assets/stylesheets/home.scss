@@ -1,3 +1,12 @@
+.landing-logged-in {
+  background: image-url("house-car-vintage-old.jpg");
+  background-size: cover;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -999;
+}
+
 #container-1 {
   height: (600px - $header-height);
   @include outer-container;

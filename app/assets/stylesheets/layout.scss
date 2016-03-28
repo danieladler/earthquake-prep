@@ -18,7 +18,6 @@
   .page-content {
     @include span-columns(10);
     @include shift(1);
-
     padding-top: 30px;
   }
 }
