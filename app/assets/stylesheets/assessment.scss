@@ -19,7 +19,7 @@ fieldset {
     }
   }
 
-  .success-message {
+  .success-message-home {
     @include span-columns(9);
     height: 40px;
     border-radius: 3px;
@@ -95,5 +95,18 @@ fieldset {
 
   #submit-gear {
     clear: left;
+    width: 23%;
+  }
+
+  .success-message-gear {
+    @include span-columns(3);
+    height: 40px;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 8px;
+    color: white;
+    float: right;
+    background-color: rgb(134, 190, 89);
+    margin-top: 100px;
   }
 }

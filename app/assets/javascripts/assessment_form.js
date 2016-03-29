@@ -1,16 +1,18 @@
 $(document).ready(function () {
 
-  $(".success-message").hide();
+  $(".success-message-home").hide();
+  $(".success-message-gear").hide();
   var homeForm = $("#home-form");
   var depForm = $("#dependent-form");
   var conForm = $("#contact-form");
+  var gearForm = $("#gear-form");
   var deleteRec = $(".delete-record");
 
   homeForm.submit( function(e) {
     e.preventDefault();
     details = homeForm.serialize();
     $.post('/assessment/update_home', details, function(data) {
-      $(".success-message").show();
+      $(".success-message-home").show();
     })
   });
 
@@ -37,6 +39,14 @@ $(document).ready(function () {
     )
     $.post('/assessment/add_contact', details, function(data) {
       $("#contact-list").append(li);
+    })
+  });
+
+  gearForm.submit( function(e) {
+    e.preventDefault();
+    details = gearForm.serialize();
+    $.post('/assessment/update_gear', details, function(data) {
+      $(".success-message-gear").show();
     })
   });
 
