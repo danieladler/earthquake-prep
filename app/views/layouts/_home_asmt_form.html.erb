@@ -28,14 +28,13 @@
     <p>
       <label for="home_type">House or Apartment?</label>
       <label>
-        <input type="radio" class="radio" name="home_type" value="house">
+        <input type="radio" class="radio" name="home_type" value="house" <%= 'checked' if @home.is_house %>>
         House
       </label>
-
     </p>
     <p>
       <label>
-        <input type="radio" class="radio" name="home_type" value="apartment">
+        <input type="radio" class="radio" name="home_type" value="apartment" <%= 'checked' unless @home.is_house %>>
         Apartment
       </label>
     </p>
@@ -43,10 +42,10 @@
     <p>
       <label for="floor_dropdown">Number of Floors (including basement):</label>
       <select name="floor_count" value="<%= @home.structure["floors"] %>">
-        <option value="1" selected="<%='selected' if @home.structure["floors"] == 1 %>">1</option>
-        <option value="2" selected="<%='selected' if @home.structure["floors"] == 2 %>">2</option>
-        <option value="3" selected="<%='selected' if @home.structure["floors"] == 3 %>">3</option>
-        <option value="4" selected="<%='selected' if @home.structure["floors"] == 4 %>">4</option>
+        <option value="1" <%='selected' if @home.structure["floors"] == 1 %>>1</option>
+        <option value="2" <%='selected' if @home.structure["floors"] == 2 %>>2</option>
+        <option value="3" <%='selected' if @home.structure["floors"] == 3 %>>3</option>
+        <option value="4" <%='selected' if @home.structure["floors"] == 4 %>>4</option>
       </select>
     </p>
 
@@ -56,6 +55,6 @@
     </p>
 
     <input type="submit" value="Save Home">
-    <div class="success-message">Home Details Updated</div>
+    <div class="success-message-home">Home Details Updated</div>
   </form>
 </fieldset>

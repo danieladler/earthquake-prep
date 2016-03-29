@@ -2,70 +2,40 @@ class Todo
   include ActiveModel::Model
   include ActiveModel::Validations
 
-  attr_accessor :user_id, :completed_preps, :total_preps, :all_preps
+  attr_accessor :user_id, :completed_preps, :total_preps, :all_prep_progress
 
   def initialize(user_id)
-    @user_id = user_id
-    @completed_preps = self.completed_all_preps
-    @total_preps = self.total_all_preps
-    @all_preps = self.all_prep_progress
+    @user_id           = user_id
+    @completed_preps   = self.completed_all_preps
+    @total_preps       = self.total_all_preps
+    @all_prep_progress = self.all_prep_progress
   end
 
   def current_user
     User.find(self.user_id)
   end
 
-  # all preparations - summary
   def completed_all_preps
-    completed_home_preps + completed_dependent_preps + completed_contact_preps# + completed_OTHER_preps
+    completed_preps = [
+        @comp_home_preps      ||= current_user.home_preparations.where(completed: true).count,
+        @comp_dependent_preps ||= current_user.dependent_preparations.where(completed: true).count,
+        @comp_gear_preps      ||= current_user.gear_preparations.where(completed: true).count,
+        @comp_contact_preps   ||= current_user.contact_preparations.where(completed: true).count
+      ]
+    completed_total = completed_preps.inject(:+)
   end
 
   def total_all_preps
-    total_home_preps + total_dependent_preps + total_contact_preps # + total_OTHER_preps
+    all_preps = [
+        @all_home_preps      ||= current_user.home_preparations.count,
+        @all_dependent_preps ||= current_user.dependent_preparations.count,
+        @all_gear_preps      ||= current_user.gear_preparations.count,
+        @all_contact_preps   ||= current_user.contact_preparations.count
+      ]
+    all_total = all_preps.inject(:+)
   end
 
   def all_prep_progress
-    (completed_all_preps/total_all_preps).round(2)
+    (completed_all_preps.to_f/total_all_preps.to_f)*100.round(2)
   end
-
-  # home preparations
-  def completed_home_preps
-    current_user.home_preparations.where(completed: true).count.to_f
-  end
-
-  def total_home_preps
-    current_user.home_preparations.count.to_f
-  end
-
-  def home_prep_progress
-    completed_home_preps/total_home_preps
-  end
-
-  # dependent preparations
-  def completed_dependent_preps
-    current_user.dependent_preparations.where(completed: true).count.to_f
-  end
-
-  def total_dependent_preps
-    current_user.dependent_preparations.count.to_f
-  end
-
-  def dependent_prep_progress
-    completed_dependent_preps/total_dependent_preps
-  end
-
-  # contact preparations
-  def completed_contact_preps
-    current_user.contact_preparations.where(completed: true).count.to_f
-  end
-
-  def total_contact_preps
-    current_user.contact_preparations.count.to_f
-  end
-
-  def contact_prep_progress
-    completed_contact_preps/total_contact_preps
-  end
-
-  # gear preparations
 end

@@ -8,6 +8,10 @@ fieldset {
     font-size: 24px;
   }
 
+  .asmt-form {
+    padding: 20px 0;
+  }
+
   .form-field {
     @include span-columns(4);
     label {
@@ -15,7 +19,7 @@ fieldset {
     }
   }
 
-  .success-message {
+  .success-message-home {
     @include span-columns(9);
     height: 40px;
     border-radius: 3px;
@@ -75,5 +79,34 @@ fieldset {
     margin-top: 30px;
     margin-left: 20px;
     height: 37px;
+  }
+}
+
+#gear-field {
+  .gear-radio {
+    @include span-columns(3);
+
+    h3 {
+      font-weight: 300;
+      font-size: 12px;
+      height: 90px;
+    }
+  }
+
+  #submit-gear {
+    clear: left;
+    width: 23%;
+  }
+
+  .success-message-gear {
+    @include span-columns(3);
+    height: 40px;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 8px;
+    color: white;
+    float: right;
+    background-color: rgb(134, 190, 89);
+    margin-top: 100px;
   }
 }
