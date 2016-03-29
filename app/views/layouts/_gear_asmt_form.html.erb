@@ -2,15 +2,19 @@
   <h2>Gear & Supplies</h2>
   <p class="form-descr">
     Here are a few of the most important pieces of gear to have ready in case of
-    an emergency. Get these items ready, and click 'save gear' to generate a
-    custom equipment list which you can view on the 'todo' page
+    an emergency. It's OK if you don't have these items ready – just choose 'yes'
+    or 'no' and click 'save gear' to generate a custom equipment list, which you
+    can view on the 'todo' page.
   </p>
   <form action="/assessment/update_gear" method="post" class="asmt-form" id="gear-form">
     <input name="utf8" type="hidden" value="✓">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
     <div class="gear-radio">
       <label for="gear_type">Flashlight</label>
-      <h3> [description] </h3>
+      <h3>
+        A flashlight with full batteries is near your bed, in case an earthquake
+        strikes at night.
+      </h3>
       <label>
         <input type="radio" class="radio" name="flashlight" value="true">
         Yes
@@ -21,8 +25,28 @@
       </label>
     </div>
     <div class="gear-radio">
+      <label for="gear_type">Clothes & Shoes</label>
+      <h3>
+        A full set of clothes (including a hat and jacket if needed in your local
+        climate) and a set of sturdy shoes are by your bed, in case an earthquake
+        strikes at night.
+      </h3>
+      <label>
+        <input type="radio" class="radio" name="ready_clothes" value="true">
+        Yes
+      </label>
+      <label>
+        <input type="radio" class="radio" name="ready_clothes" value="false">
+        No
+      </label>
+    </div>
+    <div class="gear-radio">
       <label for="gear_type">Pocket Radio</label>
-      <h3> [description] </h3>
+      <h3>
+        Most telephones will be out of order or used for emergency purposes, so
+        a portable radios battery- or wind-up-powered radio citizens band (CB)
+        or other two-way radio will be your best source of information.
+      </h3>
       <label>
         <input type="radio" class="radio" name="pocket_radio" value="true">
         Yes
@@ -33,18 +57,6 @@
       </label>
     </div>
 
-    <div class="gear-radio">
-      <label for="gear_type">Clothes & Shoes</label>
-      <h3> [description] </h3>
-      <label>
-        <input type="radio" class="radio" name="ready_clothes" value="true">
-        Yes
-      </label>
-      <label>
-        <input type="radio" class="radio" name="ready_clothes" value="false">
-        No
-      </label>
-    </div>
 
     <input id="submit-gear" type="submit" value="Save Gear">
   </form>

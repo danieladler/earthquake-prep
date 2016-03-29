@@ -8,6 +8,10 @@ fieldset {
     font-size: 24px;
   }
 
+  .asmt-form {
+    padding: 20px 0;
+  }
+
   .form-field {
     @include span-columns(4);
     label {
@@ -82,10 +86,11 @@ fieldset {
   .gear-radio {
     @include span-columns(3);
 
-  h3 {
-    font-weight: 300;
-    font-size: 12px;
-  }
+    h3 {
+      font-weight: 300;
+      font-size: 12px;
+      height: 90px;
+    }
   }
 
   #submit-gear {

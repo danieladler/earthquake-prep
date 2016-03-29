@@ -8,7 +8,7 @@ class GearAssessmentController < ApplicationController
   def gear_asmt_checks(user)
     @ga = GearAssessment.new(user)
     # create preps for the 3-4 things asked in the form
-    form_keywords = %(radio clothes)
+    form_keywords = %(flashlight radio clothes)
     @ga.create_and_check()
     # raise
     # end preliminary prep creation from form
