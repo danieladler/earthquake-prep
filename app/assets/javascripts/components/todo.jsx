@@ -67,7 +67,7 @@ var DashStat = React.createClass({
           <span id="total-preps-int">{this.props.stat.total_preps}</span>
         </div>
         <div id="completed-by-pct">
-          <span id="all-preps-pct">{this.props.stat.all_preps}</span>%
+          <span id="all-preps-pct">{this.props.stat.all_prep_progress}</span>%
         </div>
       </div>
     )

@@ -1,0 +1,52 @@
+<fieldset id="gear-field">
+  <h2>Gear & Supplies</h2>
+  <p class="form-descr">
+    Here are a few of the most important pieces of gear to have ready in case of
+    an emergency. Get these items ready, and click 'save gear' to generate a
+    custom equipment list which you can view on the 'todo' page
+  </p>
+  <form action="/assessment/update_gear" method="post" class="asmt-form" id="gear-form">
+    <input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
+    <div class="gear-radio">
+      <label for="gear_type">Flashlight</label>
+      <h3> [description] </h3>
+      <label>
+        <input type="radio" class="radio" name="flashlight_y" value="true">
+        Yes
+      </label>
+      <label>
+        <input type="radio" class="radio" name="flashlight_n" value="false">
+        No
+      </label>
+    </div>
+    <div class="gear-radio">
+      <label for="gear_type">Pocket Radio</label>
+      <h3> [description] </h3>
+      <label>
+        <input type="radio" class="radio" name="radio_y" value="true">
+        Yes
+      </label>
+      <label>
+        <input type="radio" class="radio" name="radio_n" value="false">
+        No
+      </label>
+    </div>
+
+    <div class="gear-radio">
+      <label for="gear_type">Clothes & Shoes</label>
+      <h3> [description] </h3>
+      <label>
+        <input type="radio" class="radio" name="ready_clothes_y" value="true">
+        Yes
+      </label>
+      <label>
+        <input type="radio" class="radio" name="ready_clothes_n" value="false">
+        No
+      </label>
+    </div>
+
+    <input id="submit-gear" type="submit" value="Save Gear">
+  </form>
+
+</fieldset>
