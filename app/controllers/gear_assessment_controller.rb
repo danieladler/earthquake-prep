@@ -1,17 +1,18 @@
 class GearAssessmentController < ApplicationController
   def update_gear
-    # raise
     gear_asmt_checks(current_user)
     render nothing: true
   end
 
   def gear_asmt_checks(user)
     @ga = GearAssessment.new(user)
-    # create preps for the 3-4 things asked in the form
-    form_keywords = %(flashlight radio clothes)
-    @ga.create_and_check()
-    # raise
-    # end preliminary prep creation from form
+
+    # update the 3 initial preps based on form inputs
+    params[:preparations].each do |id, data|
+      Preparation.find(id).update(completed: data[:completed])
+    end
+
+    # run the rest of the checks to create all other gear preps
     @ga.run_all_checks
   end
 end

@@ -16,11 +16,11 @@
         strikes at night.
       </h3>
       <label>
-        <input type="radio" class="radio" name="flashlight" value="true">
+        <input type="radio" class="radio" name="preparations[<%= @flashlight_prep.id %>][completed]" value="true" <%= 'checked' if @flashlight_prep.completed %>>
         Yes
       </label>
       <label>
-        <input type="radio" class="radio" name="flashlight" value="false">
+        <input type="radio" class="radio" name="preparations[<%= @flashlight_prep.id %>][completed]" value="false" <%= 'checked' unless @flashlight_prep.completed %>>
         No
       </label>
     </div>
@@ -32,11 +32,11 @@
         strikes at night.
       </h3>
       <label>
-        <input type="radio" class="radio" name="ready_clothes" value="true">
+        <input type="radio" class="radio" name="preparations[<%= @clothes_prep.id %>][completed]" value="true" <%= 'checked' if @clothes_prep.completed %>>
         Yes
       </label>
       <label>
-        <input type="radio" class="radio" name="ready_clothes" value="false">
+        <input type="radio" class="radio" name="preparations[<%= @clothes_prep.id %>][completed]" value="false" <%= 'checked' unless @clothes_prep.completed %>>
         No
       </label>
     </div>
@@ -48,17 +48,14 @@
         or other two-way radio will be your best source of information.
       </h3>
       <label>
-        <input type="radio" class="radio" name="pocket_radio" value="true">
+        <input type="radio" class="radio" name="preparations[<%= @pocket_radio_prep.id %>][completed]" value="true" <%= 'checked' if @pocket_radio_prep.completed %>>
         Yes
       </label>
       <label>
-        <input type="radio" class="radio" name="pocket_radio" value="false">
+        <input type="radio" class="radio" name="preparations[<%= @pocket_radio_prep.id %>][completed]" value="false" <%= 'checked' unless @pocket_radio_prep.completed %>>
         No
       </label>
     </div>
-
-
     <input id="submit-gear" type="submit" value="Save Gear">
   </form>
-
 </fieldset>
