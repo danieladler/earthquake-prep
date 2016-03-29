@@ -8,7 +8,7 @@ class Todo
     @user_id           = user_id
     @completed_preps   = self.completed_all_preps
     @total_preps       = self.total_all_preps
-    @all_prep_progress = self.all_prep_progress
+    @all_prep_progress = self.all_prep_progress.round(2)
   end
 
   def current_user

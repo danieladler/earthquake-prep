@@ -14,6 +14,15 @@
       margin: 10px 0;
       text-align: center;
     }
+
+    #completed-by-int {
+      text-align: center;
+    }
+
+    #completed-by-int span, #all-preps-pct {
+      padding: 20px 4px;
+      font-size: 32px;
+    }
   }
 
   .prep-list {
