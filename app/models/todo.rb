@@ -36,6 +36,11 @@ class Todo
   end
 
   def all_prep_progress
-    (completed_all_preps.to_f/total_all_preps.to_f)*100.round(2)
+    result = (completed_all_preps.to_f/total_all_preps.to_f)*100.round(2)
+    if result.nan?
+      return 0
+    else
+      return result
+    end
   end
 end
