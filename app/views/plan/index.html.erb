@@ -1,10 +1,37 @@
 <div class="container below-header">
   <div class="page-content" id="plan-container">
     <h1> <%= current_user.username %>'s Plan </h1>
-    <p> Here's what to do if an earthquake hits. </p>
+    <div class="plan-block" id="top-plan-block">
+      <h1> Here's what to do if an earthquake hits. </h1>
+    </div>
     <div class="plan-block">
       <div class="plan-content">
         <h2>Right Away:</h2>
+        <ul class="reaction-list">
+          <h3> If you are indoors: </h3>
+          <li>
+            <strong>Drop, Cover and Hold On:</strong> Take cover under a sturdy desk, table, or bench, or against an inside wall, and hold on. If there is no desk or table near you, cover your face and head with your arms and crouch in an inside corner of the building.
+          </li>
+          <li>
+            <strong>Safe spots:</strong> The best places to be are under heavy
+            pieces of furniture, such as a desk or sturdy table and against
+            inside walls.
+          </li>
+          <li>
+            <strong>Danger spots:</strong> Be aware of the dangers associated with
+            breaking window glass, falling objects, falling mirrors,
+            falling chimneys, and toppling of tall, unsecured pieces of
+            furniture.
+          </li>
+          <li>
+            Stay inside until the shaking stops and it is safe to go outside. Most injuries during earthquakes occur when people are hit by falling objects while entering or leaving buildings.
+          </li>
+        </ul>
+        <ul class="reaction-list">
+          <h3>If you are outdoors: </h3>
+          <li>Stay there.</li>
+          <li>Move away from buildings, trees, streetlights, and utility wires.</li>
+        </ul>
       </div>
     </div>
     <div class="plan-block">
@@ -28,7 +55,12 @@
     </div>
     <div class="plan-block">
       <div class="plan-content">
-        <h2>Grab your gear</h2>
+        <h2>Grab your gear:</h2>
+        <ul>
+          <% @ready_gear_items.each do |g| %>
+            <li> <%= g.question.keyword %> </li>
+          <% end %>
+        </ul>
       </div>
     </div>
     <div class="plan-block">
