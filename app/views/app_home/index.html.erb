@@ -16,7 +16,7 @@
         		<% else %>
               <div class="hero-copy">
                 <h1>Let's pick up where you left off.</h1>
-                <p> [progress indicator of assessment completion] </p>
+                <!-- <p> [progress indicator of assessment completion] </p> -->
                 <p>
                   <%= sprintf("%.2f", @todo.all_prep_progress)%> % of preparations complete
                   (<%= @todo.completed_all_preps.to_i %> of <%= @todo.total_all_preps.to_i %>)
