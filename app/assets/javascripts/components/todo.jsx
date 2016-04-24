@@ -18,11 +18,6 @@ var Todo = React.createClass({
   setCurrentPrep: function(prep) {
     this.setState({currentPrep: prep})
   },
-  markComplete: function() {
-    var cp = this.state.currentPrep;
-    cp.completed = true;
-    this.updatePrep(cp);
-  },
   updatePrep: function(prep) {
     var reactParent = this;
     $.post("/todo/preps/", {prep: prep}).then(function(prep) {
@@ -36,7 +31,7 @@ var Todo = React.createClass({
       <div>
         <Dashboard dash={this.state.dash}/>
         <PrepList handleClick={this.setCurrentPrep} preps={this.state.preps} updatePrep={this.updatePrep}/>
-        <ShowPrep prep={this.state.currentPrep} handleClick={this.markComplete}/>
+        <ShowPrep prep={this.state.currentPrep} updatePrep={this.updatePrep}/>
       </div>
     );
   }
@@ -124,18 +119,27 @@ var PrepItem = React.createClass({
 });
 
 var ShowPrep = React.createClass({
-  markComplete: function() {
-    this.props.handleClick(this.props.prep);
+  updateNote: function() {
+    var prep = this.props.prep;
+    prep.note = this.state.note;
+    this.props.updatePrep(prep);
+  },
+  noteChanged: function(event) {
+    this.setState({note: event.target.value});
   },
   render: function() {
     var body;
     if(this.props.prep) {
+      this.state = {value: this.props.prep.note};
       body = (
         <div>
           <h2>{this.props.prep.prep_type} Preparation:</h2>
           <p>{this.props.prep.question.contents}</p>
-          <h3>Notes:</h3>
-          // <button onClick={this.______}> Update Note </button>
+          <form>
+            <h3>Notes:</h3>
+            <textarea onChange={this.noteChanged} value={this.state.value}></textarea>
+          </form>
+          <button onClick={this.updateNote}> Update Note </button>
         </div>
       )
     } else {
