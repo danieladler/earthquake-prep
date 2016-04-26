@@ -26,12 +26,19 @@ var Todo = React.createClass({
     });
     reactParent.updateDash();
   },
+  updateNote: function(prep) {
+    var reactParent = this;
+    $.post("/todo/preps/", {prep: prep}).then(function(prep) {
+      var updatedPrepList = reactParent.state.preps;
+      reactParent.setState({preps: updatedPrepList, currentPrep: null});
+    });
+  },
   render: function() {
     return(
       <div>
         <Dashboard dash={this.state.dash}/>
         <PrepList handleClick={this.setCurrentPrep} preps={this.state.preps} updatePrep={this.updatePrep}/>
-        <ShowPrep prep={this.state.currentPrep} updatePrep={this.updatePrep}/>
+        <ShowPrep prep={this.state.currentPrep} updatePrep={this.updatePrep} noteChanged={this.noteChanged} updateNote={this.updateNote}/>
       </div>
     );
   }
@@ -119,27 +126,30 @@ var PrepItem = React.createClass({
 });
 
 var ShowPrep = React.createClass({
-  updateNote: function() {
+  getInitialState: function() {
+    return {notes: null};
+  },
+  noteSubmit: function(event) {
+    event.preventDefault();
     var prep = this.props.prep;
-    prep.note = this.state.note;
-    this.props.updatePrep(prep);
+    prep.notes = this.state.notes;
+    this.props.updateNote(prep);
   },
   noteChanged: function(event) {
-    this.setState({note: event.target.value});
+    this.setState({notes: event.target.value});
   },
   render: function() {
     var body;
     if(this.props.prep) {
-      this.state = {value: this.props.prep.note};
       body = (
         <div>
           <h2>{this.props.prep.prep_type} Preparation:</h2>
           <p>{this.props.prep.question.contents}</p>
-          <form>
+          <form onSubmit={this.noteSubmit}>
             <h3>Notes:</h3>
-            <textarea onChange={this.noteChanged} value={this.state.value}></textarea>
+            <textarea onChange={this.noteChanged} name="notes"/>
+            <input type="submit" value="Update Note" />
           </form>
-          <button onClick={this.updateNote}> Update Note </button>
         </div>
       )
     } else {

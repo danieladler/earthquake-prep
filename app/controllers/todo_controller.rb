@@ -12,6 +12,7 @@ class TodoController < ApplicationController
   def update_prep
     @prep = Preparation.find(params[:prep][:id])
     @prep.completed = params[:prep][:completed]
+    @prep.notes = params[:prep][:notes]
     # update other attributes of pre (notes/instructions() later when it's
     # clearer how this info will be displayed on Plan view
     if @prep.save
