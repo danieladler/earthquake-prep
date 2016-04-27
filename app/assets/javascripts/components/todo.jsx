@@ -129,15 +129,6 @@ var ShowPrep = React.createClass({
   getInitialState: function() {
     return {notes: null};
   },
-  // componentDidMount: function() {
-  //   var showPrepParent = this;
-  //   var prep = this.props.prep;
-  //   console.log(prep);
-  //   // $.ajax("/todo/preps/" + prep.id).then(function(prep) {
-  //   //   console.log(prep);
-  //   //   // showPrepParent.setState({notes: prep.notes});
-  //   // });
-  // },
   noteSubmit: function(event) {
     event.preventDefault();
     var prep = this.props.prep;
