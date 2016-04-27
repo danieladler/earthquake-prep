@@ -9,6 +9,11 @@ class TodoController < ApplicationController
     render :json => @preps , :include => :question
   end
 
+  def single_prep
+    @prep = Preparation.where(user_id: current_user.id, id: params[:id])
+    render :json => @prep
+  end
+
   def update_prep
     @prep = Preparation.find(params[:prep][:id])
     @prep.completed = params[:prep][:completed]

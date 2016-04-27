@@ -129,11 +129,21 @@ var ShowPrep = React.createClass({
   getInitialState: function() {
     return {notes: null};
   },
+  // componentDidMount: function() {
+  //   var showPrepParent = this;
+  //   var prep = this.props.prep;
+  //   console.log(prep);
+  //   // $.ajax("/todo/preps/" + prep.id).then(function(prep) {
+  //   //   console.log(prep);
+  //   //   // showPrepParent.setState({notes: prep.notes});
+  //   // });
+  // },
   noteSubmit: function(event) {
     event.preventDefault();
     var prep = this.props.prep;
     prep.notes = this.state.notes;
     this.props.updateNote(prep);
+    this.setState({notes: null});
   },
   noteChanged: function(event) {
     this.setState({notes: event.target.value});
@@ -146,7 +156,8 @@ var ShowPrep = React.createClass({
           <h2>{this.props.prep.prep_type} Preparation:</h2>
           <p>{this.props.prep.question.contents}</p>
           <form onSubmit={this.noteSubmit}>
-            <h3>Notes:</h3>
+            <h3>Note:</h3>
+            <h2>{this.props.prep.notes}</h2>
             <textarea onChange={this.noteChanged} name="notes"/>
             <input type="submit" value="Update Note" />
           </form>
