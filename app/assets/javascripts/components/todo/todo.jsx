@@ -33,12 +33,19 @@ var Todo = React.createClass({
       reactParent.setState({preps: updatedPrepList, currentPrep: null});
     });
   },
+  deletePrep: function(prep) {
+    var reactParent = this;
+    $.ajax("/todo/preps/"+ prep.id, {prep: prep, type:"DELETE"}).then(function(prep) {
+      reactParent.componentDidMount();
+      reactParent.setState({currentPrep: null});
+    });
+  },
   render: function() {
     return(
       <div>
         <Dashboard dash={this.state.dash}/>
         <PrepList handleClick={this.setCurrentPrep} preps={this.state.preps} updatePrep={this.updatePrep}/>
-        <ShowPrep prep={this.state.currentPrep} updatePrep={this.updatePrep} noteChanged={this.noteChanged} updateNote={this.updateNote}/>
+        <ShowPrep prep={this.state.currentPrep} updatePrep={this.updatePrep} noteChanged={this.noteChanged} updateNote={this.updateNote} deletePrep={this.deletePrep}/>
       </div>
     );
   }

@@ -12,6 +12,11 @@ var ShowPrep = React.createClass({
   noteChanged: function(event) {
     this.setState({notes: event.target.value});
   },
+  deletePrep: function(event) {
+    event.preventDefault();
+    var prep = this.props.prep;
+    this.props.deletePrep(prep);
+  },
   render: function() {
     var body;
     if(this.props.prep) {
@@ -25,6 +30,7 @@ var ShowPrep = React.createClass({
             <textarea onChange={this.noteChanged} name="notes"/>
             <input type="submit" value="Update Note" />
           </form>
+          <button onClick={this.deletePrep}>Delete Preparation</button>
         </div>
       )
     } else {

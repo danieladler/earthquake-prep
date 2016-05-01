@@ -27,9 +27,12 @@ class TodoController < ApplicationController
     end
   end
 
-  def dash
-    # render json: Todo.new(current_user.id)
+  def delete_prep
+    @prep = Preparation.find(params[:id])
+    render :json => @preps , :include => :question if @prep.destroy
+  end
 
+  def dash
     @arr = [].push(Todo.new(current_user.id))
     render json: @arr
   end
