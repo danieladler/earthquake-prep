@@ -2,5 +2,8 @@
   <div class="page-content">
     <h1> <%= current_user.username %>'s Preparations </h1>
     <div id="todo"></div>
+    <div id="below-todo-container">
+      <%= link_to "> continue to Plan >", plan_path, id:"plan-pg-link" %>
+    </div>
   </div>
 </div>
