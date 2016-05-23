@@ -3,7 +3,7 @@ var PrepList = React.createClass({
     var prepDivs = [];
 
     for (var i = 0; i < this.props.preps.length; i++) {
-      prepDivs.push(<PrepItem updatePrep={this.props.updatePrep} handleClick={this.props.handleClick} key={i} prep={this.props.preps[i]}/>)
+      prepDivs.push(<PrepItem updatePrep={this.props.updatePrep} deletePrep={this.props.deletePrep} handleClick={this.props.handleClick} key={i} prep={this.props.preps[i]}/>)
     }
 
     return(

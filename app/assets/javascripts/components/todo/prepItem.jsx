@@ -7,6 +7,9 @@ var PrepItem = React.createClass({
     prep.completed = !prep.completed;
     this.props.updatePrep(prep);
   },
+  deletePrep: function() {
+    this.props.deletePrep(this.props.prep);
+  },
   render: function() {
     var body;
     if (this.props.prep.completed) {
@@ -19,11 +22,13 @@ var PrepItem = React.createClass({
 
     var buttons = (
       <div className="prep-item-button-container">
-          <button className="prep-option-button edit-prep-button" >Edit</button>
-          <button className="prep-option-button done-prep-button" >Done</button>
-          <button className="prep-option-button delete-prep-button" >Delete</button>
+          <button className="prep-option-button edit-prep-button" onClick={this.showPrep} >Edit</button>
+          <button className="prep-option-button done-prep-button" onClick={this.toggleCompletion}>Done</button>
+          <button className="prep-option-button delete-prep-button" onClick={this.deletePrep}>Delete</button>
       </div>
     )
+
+
 
     return(
       <div onClick={this.showPrep} className="prep-item">
