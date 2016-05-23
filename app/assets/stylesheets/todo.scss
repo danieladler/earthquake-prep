@@ -104,6 +104,19 @@
     right: 145px;
     margin-right: 40px;
     margin-top: 75px;
+
+    button {
+      width: 40%;
+      font-size: 12px;
+      padding: 5px;
+      margin: 0px 10px;
+      display: inline-block;
+      float: left;
+    }
+
+    .delete-prep-button {
+      background-color: gray;
+    }
   }
 
   .crossed-out {

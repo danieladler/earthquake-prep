@@ -28,9 +28,9 @@ var ShowPrep = React.createClass({
             <h3>Note:</h3>
             <p>{this.props.prep.notes}</p>
             <textarea onChange={this.noteChanged} name="notes"/>
-            <input type="submit" value="Update Note" />
+            <button type="submit">Update Note</button>
+            <button className="delete-prep-button" onClick={this.deletePrep}>Delete Prep</button>
           </form>
-          <button onClick={this.deletePrep}>Delete Preparation</button>
         </div>
       )
     } else {
