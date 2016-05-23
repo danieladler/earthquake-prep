@@ -38,7 +38,9 @@
 
     .prep-item {
       clear: none;
-      padding: 5px 0 5px 10px;
+      // padding: 5px 0 5px 10px;
+      padding: 10px 0px;
+      min-height: 60px;
 
       &:hover {
         background-color: rgb(153, 153, 153);
@@ -57,7 +59,37 @@
         background-color: rgba(233, 209, 156, 0.2);
       }
 
+      p {
+        display: inline-block;
+        float: left;
+        width: 75%;
+      }
+
+      .prep-item-button-container {
+        display: inline-block;
+        float: right;
+        width: 25%;
+
+        .prep-option-button {
+          font-size: 10px;
+          padding: 5px;
+          margin: 0px 5px;
+          height: 20px;
+          width: 40px
+        }
+
+        .edit-prep-button {
+          background-color: gold;
+        }
+        .done-prep-button {
+          background-color: green;
+        }
+        .delete-prep-button {
+          background-color: gray;
+        }
+      }
     }
+
     &:first-child {
       padding-top: 10px;
     }
