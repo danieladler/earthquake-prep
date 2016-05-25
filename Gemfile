@@ -7,6 +7,7 @@ gem 'rake', '< 11.0'
 gem 'bourbon', '~> 4.2.6'
 gem 'neat'
 gem 'bitters'
+gem 'font-awesome-sass', '~> 4.6.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
