@@ -8,7 +8,7 @@
 }
 
 #container-1 {
-  height: (600px - $header-height);
+  height: (580px - $header-height);
   @include outer-container;
 }
 
@@ -66,11 +66,31 @@
 
 #container-3 {
   background-color: rgb(120, 120, 120);
-  padding: 40px 0;
+  // padding: 40px 0;
 
-  #call-to-action {
+  // #call-to-action {
+  //   @include shift(1);
+  //   @include span-columns(10);
+  //   text-align: center;
+  // }
+
+  #app-description {
     @include shift(1);
     @include span-columns(10);
     text-align: center;
+    padding: 20px 0;
+    margin-left: 0;
+    width: 100%;
+    background-color: #808080;
+
+    span {
+      font-size: 18px;
+      margin: 0;
+      color: white;
+    }
+
+    span.footer-link {
+      color: blue;
+    }
   }
 }
