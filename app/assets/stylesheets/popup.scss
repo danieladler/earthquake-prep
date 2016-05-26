@@ -96,7 +96,7 @@
     width: 95%;
 
     @include media($medium-screen) {
-      max-height: 70%;
+      // max-height: 70%;
       padding: $modal-padding;
       width: 60%;
     }
@@ -122,6 +122,7 @@
 
     #sign-in-form {
       height: 30%;
+      width: 100%;
     }
 
     .modal-content {
