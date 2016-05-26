@@ -8,7 +8,7 @@ class Todo
     @user_id           = user_id
     @completed_preps   = self.completed_all_preps
     @total_preps       = self.total_all_preps
-    @all_prep_progress = self.all_prep_progress
+    @all_prep_progress = self.all_prep_progress.round(2)
   end
 
   def current_user
@@ -36,6 +36,11 @@ class Todo
   end
 
   def all_prep_progress
-    (completed_all_preps.to_f/total_all_preps.to_f)*100.round(2)
+    result = (completed_all_preps.to_f/total_all_preps.to_f)*100.round(2)
+    if result.nan?
+      return 0
+    else
+      return result
+    end
   end
 end

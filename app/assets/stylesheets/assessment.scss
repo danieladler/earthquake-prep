@@ -41,7 +41,7 @@ fieldset {
     }
 
     .delete-record {
-      background-color: red;
+      background-color: gray;
       height: 20px;
       width: 20px;
       padding: 0;
@@ -109,4 +109,9 @@ fieldset {
     background-color: rgb(134, 190, 89);
     margin-top: 100px;
   }
+}
+
+#todo-pg-link {
+  float: right;
+  font-size: 32px;
 }

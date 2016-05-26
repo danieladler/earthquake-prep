@@ -8,7 +8,7 @@
 }
 
 #container-1 {
-  height: (600px - $header-height);
+  height: (580px - $header-height);
   @include outer-container;
 }
 
@@ -43,6 +43,7 @@
       }
 
       .card-copy {
+        text-align: center;
         background-color: whitesmoke;
         border-bottom-right-radius: 12px;
         border-bottom-left-radius: 12px;
@@ -61,16 +62,49 @@
         width: 100%;
       }
     }
+
+    #assess-card .card-image {
+      background: url("https://s3-us-west-2.amazonaws.com/ready-city/assess_sm.jpg");
+      background-size: cover;
+    }
+    #prepare-card .card-image {
+      background: url("https://s3-us-west-2.amazonaws.com/ready-city/prepare_sm.jpg");
+      background-size: cover;
+    }
+    #react-card .card-image {
+      background: url("https://s3-us-west-2.amazonaws.com/ready-city/ready_sm.jpg");
+      background-size: cover;
+    }
   }
 }
 
 #container-3 {
   background-color: rgb(120, 120, 120);
-  padding: 40px 0;
+  // padding: 40px 0;
 
-  #call-to-action {
+  // #call-to-action {
+  //   @include shift(1);
+  //   @include span-columns(10);
+  //   text-align: center;
+  // }
+
+  #app-description {
     @include shift(1);
     @include span-columns(10);
     text-align: center;
+    padding: 20px 0;
+    margin-left: 0;
+    width: 100%;
+    background-color: #808080;
+
+    span {
+      font-size: 18px;
+      margin: 0;
+      color: white;
+    }
+
+    span.footer-link {
+      color: blue;
+    }
   }
 }

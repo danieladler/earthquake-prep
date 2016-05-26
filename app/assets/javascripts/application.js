@@ -16,5 +16,5 @@
 //= require assessment_form.js
 //= require react
 //= require react_ujs
-//= require components
+//= require_tree ./components
 //= require_tree .

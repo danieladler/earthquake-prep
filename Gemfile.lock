@@ -72,6 +72,8 @@ GEM
     erubis (2.7.0)
     execjs (2.6.0)
     ffi (1.9.10)
+    font-awesome-sass (4.6.2)
+      sass (>= 3.2)
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -231,6 +233,7 @@ DEPENDENCIES
   bourbon (~> 4.2.6)
   byebug
   coffee-rails (~> 4.1.0)
+  font-awesome-sass (~> 4.6.2)
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails

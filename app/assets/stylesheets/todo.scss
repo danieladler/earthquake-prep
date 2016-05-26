@@ -14,6 +14,15 @@
       margin: 10px 0;
       text-align: center;
     }
+
+    #completed-by-int {
+      text-align: center;
+    }
+
+    #completed-by-int span, #all-preps-pct {
+      padding: 20px 4px;
+      font-size: 32px;
+    }
   }
 
   .prep-list {
@@ -29,26 +38,50 @@
 
     .prep-item {
       clear: none;
-      padding: 5px 0 5px 10px;
+      float: left;
+      width: 100%;
 
       &:hover {
         background-color: rgb(153, 153, 153);
       }
 
-      [data-prep-type="Dependent"] {
-        background-color: rgba(149, 192, 255, 0.2);
-      }
-      [data-prep-type="Home"] {
-        background-color: rgba(155, 218, 147, 0.2);
-      }
-      [data-prep-type="Contact"] {
-        background-color: rgba(233, 209, 156, 0.2);
-      }
-      [data-prep-type="Gear"] {
-        background-color: rgba(233, 209, 156, 0.2);
+      .prep-item-container {
+        i {
+          width: 20px;
+          height: 20px;
+          float: left;
+          padding: 5px 0px 0px 0px;
+        }
       }
 
+      p {
+        display: inline-block;
+        float: left;
+        width: 75%;
+      }
+
+      .prep-item-button-container {
+
+        .prep-option-button {
+          font-size: 10px;
+          padding: 5px;
+          margin: 0px 2px;
+          height: 20px;
+          width: 40px
+        }
+
+        .edit-prep-button {
+          background-color: gold;
+        }
+        .done-prep-button {
+          background-color: green;
+        }
+        .delete-prep-button {
+          background-color: gray;
+        }
+      }
     }
+
     &:first-child {
       padding-top: 10px;
     }
@@ -63,10 +96,30 @@
     right: 145px;
     margin-right: 40px;
     margin-top: 75px;
+
+    button {
+      width: 40%;
+      font-size: 12px;
+      padding: 5px;
+      margin: 0px 10px;
+      display: inline-block;
+      float: left;
+    }
+
+    .delete-prep-button {
+      background-color: gray;
+    }
   }
 
   .crossed-out {
     text-decoration: line-through;
     color: rgb(120, 120, 120);
   }
+}
+
+#todo-pg-link {
+  display: block;
+  clear: none;
+  float: right;
+  font-size: 32px;
 }
