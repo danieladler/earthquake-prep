@@ -12,3 +12,11 @@
 //       else  headerWrap.css('background-color', 'rgba(255, 255, 255, 0.0)');
 //   });
 // });
+
+$(document).ready(function() {
+  $("header [href]").each(function() {
+    if (this.href == window.location.href) {
+      $(this).addClass("currentPage");
+    }
+  });
+});

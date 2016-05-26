@@ -46,7 +46,7 @@ var Todo = React.createClass({
         <Dashboard dash={this.state.dash}/>
         <PrepList handleClick={this.setCurrentPrep} preps={this.state.preps} updatePrep={this.updatePrep} deletePrep={this.deletePrep}/>
         <ShowPrep prep={this.state.currentPrep} updatePrep={this.updatePrep} noteChanged={this.noteChanged} updateNote={this.updateNote} deletePrep={this.deletePrep}/>
-      </div>
+    </div>
     );
   }
 });
