@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require header
 //= require home
-//= require assessment_form.js
+//= require assessment_form
 //= require react
 //= require react_ujs
 //= require_tree ./components
