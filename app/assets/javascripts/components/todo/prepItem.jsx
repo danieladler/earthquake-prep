@@ -1,3 +1,10 @@
+var localIconBank = {
+  Home: "fa fa-home",
+  Gear: "fa fa-wrench",
+  Dependent: "fa fa-child",
+  Contact: "fa fa-phone"
+}
+
 var PrepItem = React.createClass({
   showPrep: function() {
     this.props.handleClick(this.props.prep);
@@ -12,13 +19,17 @@ var PrepItem = React.createClass({
   },
   render: function() {
     var body;
+    var prepTypeForCSS = localIconBank[this.props.prep.prep_type];
     if (this.props.prep.completed) {
       body = (
         <p className="crossed-out" data-prep-type={this.props.prep.prep_type}>{this.props.prep.question.contents}</p>
       )
     } else {
       body = (
-        <p data-prep-type={this.props.prep.prep_type}>{this.props.prep.prep_type}: {this.props.prep.question.contents}</p>
+        <div className="prep-item-container">
+          <i className={prepTypeForCSS}></i>
+          <p data-prep-type={this.props.prep.prep_type}>{this.props.prep.question.contents}</p>
+        </div>
       )
     }
 

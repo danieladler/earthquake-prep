@@ -40,29 +40,17 @@
       clear: none;
       float: left;
       width: 100%;
-      // padding: 5px 0 5px 10px;
-      // padding: 10px 0px;
-      // min-height: 60px;
 
       &:hover {
         background-color: rgb(153, 153, 153);
       }
 
-      [data-prep-type="Dependent"] {
-        background-color: rgba(149, 192, 255, 0.2);
-
-      }
-      [data-prep-type="Home"] {
-        background-color: rgba(155, 218, 147, 0.2);
-      }
-      [data-prep-type="Contact"] {
-        background-color: rgba(233, 209, 156, 0.2);
-      }
-      [data-prep-type="Gear"] {
-        background-color: rgba(233, 209, 156, 0.2);
-        &::before {
-          // content: url('/app/assets/images/sample-todo-icon.png');
-          content: url('sample-todo-icon.png');
+      .prep-item-container {
+        i {
+          width: 20px;
+          height: 20px;
+          float: left;
+          padding: 5px 0px 0px 0px;
         }
       }
 
@@ -73,14 +61,11 @@
       }
 
       .prep-item-button-container {
-        display: inline-block;
-        float: right;
-        width: 25%;
 
         .prep-option-button {
           font-size: 10px;
           padding: 5px;
-          margin: 0px 5px;
+          margin: 0px 2px;
           height: 20px;
           width: 40px
         }
