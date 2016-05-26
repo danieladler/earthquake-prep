@@ -43,6 +43,7 @@
       }
 
       .card-copy {
+        text-align: center;
         background-color: whitesmoke;
         border-bottom-right-radius: 12px;
         border-bottom-left-radius: 12px;
@@ -60,6 +61,19 @@
       img {
         width: 100%;
       }
+    }
+
+    #assess-card .card-image {
+      background: url("https://s3-us-west-2.amazonaws.com/ready-city/assess_sm.jpg");
+      background-size: cover;
+    }
+    #prepare-card .card-image {
+      background: url("https://s3-us-west-2.amazonaws.com/ready-city/prepare_sm.jpg");
+      background-size: cover;
+    }
+    #react-card .card-image {
+      background: url("https://s3-us-west-2.amazonaws.com/ready-city/ready_sm.jpg");
+      background-size: cover;
     }
   }
 }
