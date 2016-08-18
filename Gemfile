@@ -7,6 +7,7 @@ gem 'rake', '< 11.0'
 gem 'bourbon', '~> 4.2.6'
 gem 'neat'
 gem 'bitters'
+gem "refills"
 gem 'font-awesome-sass', '~> 4.6.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -52,9 +53,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem "refills"
 end
 
 group :production do
-  gem 'rails_12factor' 
+  gem 'rails_12factor'
 end
