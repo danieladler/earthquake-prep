@@ -51,20 +51,20 @@ var Todo = React.createClass({
   }
 });
 
-var ready = function () {
-  ReactDOM.render(
-    <Todo />,
-    document.getElementById("todo")
-  );
-};
-
-// $(document).ready(ready);
-
-$(document).ready(function() {
-  if ($("#todo").length > 0) {
-    ReactDOM.render(
-      <Todo />,
-      document.getElementById("todo")
-    );
-  }
-});
+// var ready = function () {
+//   ReactDOM.render(
+//     <Todo />,
+//     document.getElementById("todo")
+//   );
+// };
+//
+// // $(document).ready(ready);
+//
+// $(document).ready(function() {
+//   if ($("#todo").length > 0) {
+//     ReactDOM.render(
+//       <Todo />,
+//       document.getElementById("todo")
+//     );
+//   }
+// });
