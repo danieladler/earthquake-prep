@@ -6,10 +6,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params.require(:user).permit(:username, :email, :password, :password_confirmation))
-    # @user = User.new
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "Registration Successful. Welcome to Ready.City!"
+      redirect_to root_path, success: "Registration Successful. Welcome to Ready.City!"
     else
       render :sign_up
     end

@@ -13,11 +13,12 @@
     <div class="<%= @landing ? 'landing' : '' %>"></div>
     <%= render "layouts/header" %>
     <div class="main">
-      <!-- <% if flash[:notice] %>
-        <div class="error-messages">
-          <%#= flash[:notice] %>
-        </div>
-      <% end %> -->
+      <% if flash %>
+        <% flash.each do |key, value| %>
+          <div class="flash-message flash-<%= key %>"><%= value %></div>
+        <% end %>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>
