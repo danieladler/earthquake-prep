@@ -1,0 +1,28 @@
+<div class="hero">
+  <div class="hero-inner">
+    <% if !current_user %>
+      <div class="hero-copy">
+        <h1>Personalized Earthquake Preparation</h1>
+        <p>Preparing for "The Big One" can be scary, time-consuming, and expensive.</p>
+        <p>Ready.city helps you make a disaster preparation plan unique to your home, priorities and budget.</p>
+      </div>
+      <button id="sign-up"><%= link_to "Sign Up", sign_up_path %></button>
+    <% else %>
+      <div class="hero-copy">
+        <% if @current_user.home_preparations.count == 0 %>
+          <h1>Welcome to Ready.city!</h1>
+          <h1>Let's get started.</h1>
+        <% else %>
+          <h1>Let's pick up where you left off.</h1>
+        <% end %>
+        <!-- <p> [progress indicator of assessment completion] </p> -->
+        <p>
+          <%= sprintf("%.2f", @todo.all_prep_progress)%> % of preparations complete
+          (<%= @todo.completed_all_preps.to_i %> of <%= @todo.total_all_preps.to_i %>)
+        </p>
+      </div>
+      <button> <%= link_to "Assessment", assessment_form_path %></button>
+      <button> <%= link_to "Todo", todo_path %></button>
+    <% end %>
+  </div>
+</div>
