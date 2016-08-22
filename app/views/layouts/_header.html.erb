@@ -1,23 +1,22 @@
 <div class="<%= @landing ? 'landing-header header-wrap' : 'header-wrap' %>">
-  <header>
+  <header class="navigation navigation-wrapper">
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <%= link_to root_path do %>
-      <div id="logo">
-        <i class="fa fa-life-ring fa-4"></i>
-        <span>Ready.city</span>
+      <div class="brand">
+        <i class="fa fa-life-ring fa-4 logo-icon"></i>
+        <span class="brand-name">Ready.city</span>
       </div>
     <% end %>
-    <ul>
+    <ul id="js-navigation-menu" class="navigation-menu show">
       <% if current_user %>
-        <li> Hello, <strong><%= current_user.username%></strong></li>
-        <li id="vertical-spacer">|</li>
-        <li><%= link_to "Assessment", assessment_form_path %></li>
-        <li><%= link_to "To-Do List", todo_path %></li>
-        <li><%= link_to "Plan", plan_path %></li>
-        <li id="vertical-spacer">|</li>
-        <li><%= link_to "Sign Out", sign_out_path %></li>
+        <li class="nav-link"> Hello, <strong><%= current_user.username%></strong></li>
+        <li class="nav-link"><%= link_to "Assessment", assessment_form_path %></li>
+        <li class="nav-link"><%= link_to "To-Do List", todo_path %></li>
+        <li class="nav-link"><%= link_to "Plan", plan_path %></li>
+        <li class="nav-link"><%= link_to "Sign Out", sign_out_path %></li>
       <% else %>
-        <li><%= link_to "Sign Up", sign_up_path %></li>
-        <li><%= render "refills/sign_in_popup" %></li>
+        <li class="nav-link"><%= link_to "Sign Up", sign_up_path %></li>
+        <li class="nav-link"><%= render "refills/sign_in_popup" %></li>
       <% end %>
     </ul>
   </header>

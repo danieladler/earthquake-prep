@@ -32,7 +32,7 @@
     .card {
       @include flex-basis(15em);
       @include flex-grow(1);
-      margin: 0 1em;
+      margin: 0.5em;
       border-radius: 1em;
 
       h4 {
